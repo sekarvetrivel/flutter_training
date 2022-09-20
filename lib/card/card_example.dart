@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../global/global_functions.dart';
 import 'components/elevated_card.dart';
 import 'components/filled_card.dart';
 import 'components/outlined_card.dart';
@@ -27,11 +28,14 @@ class _CardPageState extends State<CardPage> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 const ListTile(
                   leading: Icon(Icons.album),
                   title: Text('A Material Design card'),
-                  subtitle: Text('A panel with slightly rounded corners and an elevation shadow.'),
+                  subtitle: Text(
+                      'A panel with slightly rounded corners and an elevation shadow.'),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -60,9 +64,7 @@ class _CardPageState extends State<CardPage> {
               splashColor: Colors.blue.withAlpha(30),
               onTap: () {
                 //debugPrint('Card tapped.');
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                  content: Text('Card tapped.'),
-                ));
+                mySnackBar(context, 'Card tapped.');
               },
               child: Padding(
                 padding: const EdgeInsets.all(8.0),

@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_training/alertdialog/alertdialog_example.dart';
+import 'package:flutter_training/animated_container/animation_controller_example.dart';
+import 'package:flutter_training/aspect_ratio/aspect_ratio_example.dart';
+import 'package:flutter_training/asset_bundle/asset_bundle_example.dart';
 import 'package:flutter_training/baseline/baseline_example.dart';
+import 'package:flutter_training/buttons/buttons_example.dart';
+import 'package:flutter_training/icons/icons_example.dart';
 
 import '../card/card_example.dart';
 import '../column/column_example.dart';
@@ -52,6 +58,42 @@ navigateTo(BuildContext context, int index) {
         BaselinePage(title: "Baseline"),
       );
       break;
+    case 7:
+      navigatorHelper(
+        context,
+        AlertdialogPage(title: "AlertDialog"),
+      );
+      break;
+    case 8:
+      navigatorHelper(
+        context,
+        AssetBundlePage(title: "AssetBundle"),
+      );
+      break;
+    case 9:
+      navigatorHelper(
+        context,
+        AspectRatioPage(title: "AspectRatio"),
+      );
+      break;
+    case 10:
+      navigatorHelper(
+        context,
+        AnimationControllerPage(title: "AnimationController"),
+      );
+      break;
+    case 11:
+      navigatorHelper(
+        context,
+        IconsPage(title: "Icons"),
+      );
+      break;
+    case 12:
+      navigatorHelper(
+        context,
+        ButtonsPage(title: "Buttons"),
+      );
+      break;
   }
 }
 
@@ -74,4 +116,10 @@ navigateToPageSTLess(BuildContext context, StatelessWidget statelessWidget) {
     context,
     statelessWidget,
   );
+}
+
+mySnackBar(BuildContext context, String text) {
+  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    content: Text(text),
+  ));
 }

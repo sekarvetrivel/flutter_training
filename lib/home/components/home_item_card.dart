@@ -16,8 +16,11 @@ class HomeItemCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       child: ListTile(
+        dense: true,
+        contentPadding: EdgeInsets.symmetric(horizontal: 0.0, vertical: 0.0),
         title: Center(
           child: Card(
+            margin: EdgeInsets.all(15),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.0),
             ),
@@ -26,6 +29,7 @@ class HomeItemCard extends StatelessWidget {
             child: Center(
               child: Text(
                 items[index],
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.white,

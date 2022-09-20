@@ -41,6 +41,12 @@ class _MyHomePageState extends State<MyHomePage> {
     "Column",
     "Card",
     "Baseline",
+    "Alertdialog",
+    "AssetBundle",
+    "AspectRatio",
+    "Animation Controller",
+    "Icons",
+    "Buttons",
   ];
   List<Widget> drawerChildren = [];
 
@@ -83,9 +89,11 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         child: GridView.builder(
+          padding: EdgeInsets.symmetric(horizontal: 8),
           itemCount: items.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, crossAxisSpacing: 10.0, mainAxisSpacing: 10.0),
+              crossAxisSpacing: 4,
+              mainAxisSpacing: 4, crossAxisCount: 2),
           itemBuilder: (BuildContext context, int index) {
             return HomeItemCard(
               items: items,

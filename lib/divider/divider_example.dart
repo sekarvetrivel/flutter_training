@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'components/my_extended.dart';
+
 class DividerPage extends StatefulWidget {
   const DividerPage({super.key, required this.title});
 
@@ -22,7 +24,11 @@ class _DividerPageState extends State<DividerPage> {
             Expanded(
               child: Row(
                 children: <Widget>[
-                  MyExpanded(color: Colors.red, text: "Above \nLeft", textColor: Colors.black, textSize: 20),
+                  MyExpanded(
+                      color: Colors.red,
+                      text: "Above \nLeft",
+                      textColor: Colors.black,
+                      textSize: 20),
                   VerticalDivider(
                     width: 20,
                     thickness: 5,
@@ -30,7 +36,11 @@ class _DividerPageState extends State<DividerPage> {
                     endIndent: 20,
                     color: Colors.black,
                   ),
-                  MyExpanded(color: Colors.amber, text: "Above \nRight", textColor: Colors.black, textSize: 20),
+                  MyExpanded(
+                      color: Colors.amber,
+                      text: "Above \nRight",
+                      textColor: Colors.black,
+                      textSize: 20),
                 ],
               ),
             ),
@@ -41,42 +51,12 @@ class _DividerPageState extends State<DividerPage> {
               endIndent: 20,
               color: Colors.black,
             ),
-            MyExpanded(color: Colors.blue, text: "Below", textColor: Colors.white, textSize: 24),
+            MyExpanded(
+                color: Colors.blue,
+                text: "Below",
+                textColor: Colors.white,
+                textSize: 24),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class MyExpanded extends StatelessWidget {
-  const MyExpanded({
-    Key? key,
-    required this.color,
-    required this.text,
-    required this.textColor,
-    required this.textSize,
-  }) : super(key: key);
-
-  final Color color;
-  final Color textColor;
-  final String text;
-  final double textSize;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        color: color,
-        child: Center(
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: textSize,
-              color: textColor,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
         ),
       ),
     );
