@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_training/buttons/components/my_choice_card.dart';
+
+import 'components/my_switch_screen.dart';
 
 class ButtonsPage extends StatefulWidget {
   const ButtonsPage({super.key, required this.title});
@@ -15,6 +18,20 @@ class ListItem {
 
   ListItem(this.value, this.name);
 }
+
+class Choice {
+  const Choice({required this.name, required this.icon});
+
+  final String name;
+  final IconData icon;
+}
+
+List<Choice> choices = const <Choice>[
+  const Choice(name: 'Open', icon: Icons.file_open_outlined),
+  const Choice(name: 'Load', icon: Icons.upload),
+  const Choice(name: 'Save', icon: Icons.save_outlined),
+  const Choice(name: 'Exit', icon: Icons.exit_to_app),
+];
 
 class _ButtonsPageState extends State<ButtonsPage> {
   final ButtonStyle textButtonStyle = TextButton.styleFrom(
@@ -44,6 +61,8 @@ class _ButtonsPageState extends State<ButtonsPage> {
       borderRadius: BorderRadius.all(Radius.circular(2)),
     ),
   );
+  double _speakervolume = 0.0;
+  int _volume = 0;
 
   List<ListItem> _dropdownItems = [
     ListItem(1, "Choice 1"),
@@ -51,8 +70,19 @@ class _ButtonsPageState extends State<ButtonsPage> {
     ListItem(3, "Choice 3"),
     ListItem(4, "Choice 4")
   ];
+
   late List<DropdownMenuItem<ListItem>> _dropdownMenuItems;
   late ListItem _itemSelected;
+
+  Choice _selectedOption = choices[0];
+  final isSelected = <bool>[false, false, false];
+  bool currentlySelected = false;
+
+  void _select(Choice choice) {
+    setState(() {
+      _selectedOption = choice;
+    });
+  }
 
   void initState() {
     super.initState();
@@ -90,6 +120,19 @@ class _ButtonsPageState extends State<ButtonsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: <Widget>[
+          PopupMenuButton<Choice>(
+            onSelected: _select,
+            itemBuilder: (BuildContext context) {
+              return choices.skip(0).map((Choice choice) {
+                return PopupMenuItem<Choice>(
+                  value: choice,
+                  child: Text(choice.name),
+                );
+              }).toList();
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -211,7 +254,9 @@ class _ButtonsPageState extends State<ButtonsPage> {
                     child: Container(
                       padding: const EdgeInsets.all(5.0),
                       decoration: BoxDecoration(
-                          color: Colors.blue, border: Border.all(color: Colors.black), ),
+                        color: Colors.blue,
+                        border: Border.all(color: Colors.black),
+                      ),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton(
                             style: new TextStyle(
@@ -230,6 +275,106 @@ class _ButtonsPageState extends State<ButtonsPage> {
                   Text("We have selected ${_itemSelected.name}"),
                 ],
               ),
+              IconButton(
+                  icon: Icon(Icons.volume_up),
+                  iconSize: 50,
+                  color: Colors.brown,
+                  tooltip: 'Increase volume by 5',
+                  onPressed: () {
+                    setState(() {
+                      _speakervolume += 5;
+                    });
+                  }),
+              Text('Speaker Volume: $_speakervolume'),
+              InkWell(
+                splashColor: Colors.green,
+                highlightColor: Colors.blue,
+                child: Icon(Icons.ring_volume, size: 50),
+                onTap: () {
+                  setState(() {
+                    _volume += 2;
+                  });
+                },
+              ),
+              Text(_volume.toString(), style: TextStyle(fontSize: 25)),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: MyChoiceCard(choice: _selectedOption),
+              ),
+              Padding(
+                padding: EdgeInsets.all(15),
+                child: new ButtonBar(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    ElevatedButton(
+                      child: new Text('Javatpoint'),
+                      style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                      ),
+                      onPressed: () {
+                        /** */
+                      },
+                    ),
+                    TextButton(
+                      child: Text('Flutter'),
+                      style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.blue),
+                      ),
+                      onPressed: () {
+                        /** */
+                      },
+                    ),
+                    TextButton(
+                      child: Text('MySQL'),
+                      style: ButtonStyle(
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(Colors.blue),
+                      ),
+                      onPressed: () {
+                        /** */
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              ToggleButtons(
+                color: Colors.black.withOpacity(0.60),
+                selectedColor: Colors.blue,
+                selectedBorderColor: Colors.blue,
+                fillColor: Colors.blue.withOpacity(0.08),
+                splashColor: Colors.blue.withOpacity(0.12),
+                hoverColor: Colors.blue.withOpacity(0.04),
+                borderRadius: BorderRadius.circular(4.0),
+                constraints: BoxConstraints(minHeight: 36.0),
+                isSelected: isSelected,
+                onPressed: (index) {
+                  // Respond to button selection
+                  setState(() {
+                    isSelected[index] = !isSelected[index];
+                  });
+                },
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text('BUTTON 1'),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text('BUTTON 2'),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Text('BUTTON 3'),
+                  ),
+                ],
+              ),
+              Center(child: MySwitchScreen()),
             ],
           ),
         ),

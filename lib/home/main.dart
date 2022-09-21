@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import 'components/home_item_card.dart';
@@ -47,13 +49,27 @@ class _MyHomePageState extends State<MyHomePage> {
     "Animation Controller",
     "Icons",
     "Buttons",
+    "Animated Container",
+    "TextField",
+    "Text",
+    "Scaffold",
   ];
+
+  List<Color> colorList = [];
   List<Widget> drawerChildren = [];
 
   @override
   void initState() {
     super.initState();
     this.drawerChildren = createDrawerChildren();
+    getColors();
+  }
+
+  getColors() {
+    for (int i = 0; i < items.length; i++) {
+      colorList.add(
+          Colors.primaries[math.Random().nextInt(Colors.primaries.length)]);
+    }
   }
 
   List<Widget> createDrawerChildren() {
@@ -92,12 +108,12 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.symmetric(horizontal: 8),
           itemCount: items.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisSpacing: 4,
-              mainAxisSpacing: 4, crossAxisCount: 2),
+              crossAxisSpacing: 4, mainAxisSpacing: 4, crossAxisCount: 2),
           itemBuilder: (BuildContext context, int index) {
             return HomeItemCard(
               items: items,
               index: index,
+              colors: colorList,
             );
           },
         ),

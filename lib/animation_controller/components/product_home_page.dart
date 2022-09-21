@@ -22,36 +22,36 @@ class ProductHomePage extends StatelessWidget {
                     name: "iPhone",
                     description: "iPhone is the stylist phone ever",
                     price: 1000,
-                    image: "iphone.png"),
+                    image: "image_1.jpg"),
                 opacity: animation),
             MyAnimatedWidget(
                 child: ProductBox(
                     name: "Pixel",
                     description: "Pixel is the most featureful phone ever",
                     price: 800,
-                    image: "pixel.png"),
+                    image: "image_2.jpg"),
                 animation: animation),
             ProductBox(
                 name: "Laptop",
                 description: "Laptop is most productive development tool",
                 price: 2000,
-                image: "laptop.png"),
+                image: "image_3.jpg"),
             ProductBox(
                 name: "Tablet",
                 description:
                     "Tablet is the most useful device ever for meeting",
                 price: 1500,
-                image: "tablet.png"),
+                image: "image_4.jpg"),
             ProductBox(
                 name: "Pendrive",
                 description: "Pendrive is useful storage medium",
                 price: 100,
-                image: "pendrive.png"),
+                image: "image_5.jpg"),
             ProductBox(
                 name: "Floppy Drive",
                 description: "Floppy drive is useful rescue storage medium",
                 price: 20,
-                image: "floppy.png"),
+                image: "image_1.jpg"),
           ],
         ));
   }

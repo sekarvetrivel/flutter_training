@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../../global/global_functions.dart';
@@ -7,10 +9,12 @@ class HomeItemCard extends StatelessWidget {
     Key? key,
     required this.items,
     required this.index,
+    required this.colors,
   }) : super(key: key);
 
   final List<String> items;
   final int index;
+  final List<Color> colors;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,7 @@ class HomeItemCard extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.0),
             ),
-            color: Colors.blue,
+            color:  colors[index],
             elevation: 10,
             child: Center(
               child: Text(

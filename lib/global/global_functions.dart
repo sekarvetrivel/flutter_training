@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/alertdialog/alertdialog_example.dart';
-import 'package:flutter_training/animated_container/animation_controller_example.dart';
-import 'package:flutter_training/aspect_ratio/aspect_ratio_example.dart';
-import 'package:flutter_training/asset_bundle/asset_bundle_example.dart';
-import 'package:flutter_training/baseline/baseline_example.dart';
-import 'package:flutter_training/buttons/buttons_example.dart';
-import 'package:flutter_training/icons/icons_example.dart';
 
+import '../alertdialog/alertdialog_example.dart';
+import '../animated_container/animated_container_example.dart';
+import '../animation_controller/animation_controller_example.dart';
+import '../aspect_ratio/aspect_ratio_example.dart';
+import '../asset_bundle/asset_bundle_example.dart';
+import '../baseline/baseline_example.dart';
+import '../buttons/buttons_example.dart';
 import '../card/card_example.dart';
 import '../column/column_example.dart';
 import '../container/container_example.dart';
 import '../divider/divider_example.dart';
 import '../drawer/drawer_example.dart';
+import '../icons/icons_example.dart';
 import '../list_view_and_list_tile/list_view_example.dart';
+import '../scaffold/scaffold_example.dart';
+import '../text/text_example.dart';
+import '../text_field/text_field_example.dart';
 
 navigateTo(BuildContext context, int index) {
   switch (index) {
@@ -92,6 +96,30 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         ButtonsPage(title: "Buttons"),
+      );
+      break;
+    case 13:
+      navigatorHelper(
+        context,
+        AnimatedContainerPage(title: "Animated Container"),
+      );
+      break;
+    case 14:
+      navigatorHelper(
+        context,
+        TextFieldPage(title: "TextField"),
+      );
+      break;
+    case 15:
+      navigatorHelper(
+        context,
+        TextPage(title: "Text"),
+      );
+      break;
+    case 16:
+      navigatorHelper(
+        context,
+        ScaffoldPage(title: "Scaffold"),
       );
       break;
   }

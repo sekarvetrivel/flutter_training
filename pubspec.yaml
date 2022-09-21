@@ -63,6 +63,7 @@ flutter:
   assets:
      - assets/images/
      - assets/json/
+     - assets/fonts/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -89,3 +90,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: caveat
+      fonts:
+        - asset: assets/fonts/Caveat.ttf

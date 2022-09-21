@@ -32,6 +32,7 @@ class _AnimationBasedClassesExamplePageState
   Widget build(BuildContext context) {
     controller.forward();
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,

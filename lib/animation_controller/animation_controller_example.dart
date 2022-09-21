@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/animated_container/pages/animation_based_classes.dart';
-import 'package:flutter_training/animated_container/pages/shape_with_color.dart';
 
 import '../global/global_functions.dart';
+import 'pages/animation_based_classes.dart';
 import 'pages/color_animation.dart';
 import 'pages/icon_and_screen_animation.dart';
+import 'pages/shape_with_color.dart';
 import 'pages/simple_scaling_box.dart';
 
 class AnimationControllerPage extends StatefulWidget {

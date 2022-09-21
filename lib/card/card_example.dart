@@ -21,65 +21,69 @@ class _CardPageState extends State<CardPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: [
-          Card(
-            margin: EdgeInsets.all(20),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                SizedBox(
-                  height: 10,
-                ),
-                const ListTile(
-                  leading: Icon(Icons.album),
-                  title: Text('A Material Design card'),
-                  subtitle: Text(
-                      'A panel with slightly rounded corners and an elevation shadow.'),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              Card(
+                margin: EdgeInsets.all(20),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    TextButton(
-                      child: const Text('OK'),
-                      onPressed: () {
-                        /* ... */
-                      },
+                    SizedBox(
+                      height: 10,
                     ),
-                    const SizedBox(width: 8),
-                    TextButton(
-                      child: const Text('CANCEL'),
-                      onPressed: () {
-                        /* ... */
-                      },
+                    const ListTile(
+                      leading: Icon(Icons.album),
+                      title: Text('A Material Design card'),
+                      subtitle: Text(
+                          'A panel with slightly rounded corners and an elevation shadow.'),
                     ),
-                    const SizedBox(width: 8),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        TextButton(
+                          child: const Text('OK'),
+                          onPressed: () {
+                            /* ... */
+                          },
+                        ),
+                        const SizedBox(width: 8),
+                        TextButton(
+                          child: const Text('CANCEL'),
+                          onPressed: () {
+                            /* ... */
+                          },
+                        ),
+                        const SizedBox(width: 8),
+                      ],
+                    ),
                   ],
                 ),
-              ],
-            ),
-          ),
-          Card(
-            child: InkWell(
-              splashColor: Colors.blue.withAlpha(30),
-              onTap: () {
-                //debugPrint('Card tapped.');
-                mySnackBar(context, 'Card tapped.');
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: const SizedBox(
-                  width: 300,
-                  height: 100,
-                  child: Text('A card that can be tapped'),
+              ),
+              Card(
+                child: InkWell(
+                  splashColor: Colors.blue.withAlpha(30),
+                  onTap: () {
+                    //debugPrint('Card tapped.');
+                    mySnackBar(context, 'Card tapped.');
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: const SizedBox(
+                      width: 300,
+                      height: 100,
+                      child: Text('A card that can be tapped'),
+                    ),
+                  ),
                 ),
               ),
-            ),
+              ElevatedCardExample(),
+              FilledCardExample(),
+              OutlinedCardExample(),
+            ],
           ),
-          ElevatedCardExample(),
-          FilledCardExample(),
-          OutlinedCardExample(),
-        ],
+        ),
       ),
     );
   }
