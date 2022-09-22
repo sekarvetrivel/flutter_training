@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/dart_iterable_collections/dart_iterable_collections_example.dart';
 
 import '../alertdialog/alertdialog_example.dart';
 import '../animated_container/animated_container_example.dart';
@@ -11,6 +10,7 @@ import '../buttons/buttons_example.dart';
 import '../card/card_example.dart';
 import '../column/column_example.dart';
 import '../container/container_example.dart';
+import '../country_state_city_picker/CountryStateCityPickerExample.dart';
 import '../divider/divider_example.dart';
 import '../drawer/drawer_example.dart';
 import '../icons/icons_example.dart';
@@ -121,6 +121,12 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         ScaffoldPage(title: "Scaffold"),
+      );
+      break;
+    case 17:
+      navigatorHelper(
+        context,
+        CSCPickerPage(title: "CSCPicker"),
       );
       break;
   }
