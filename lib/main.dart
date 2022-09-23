@@ -55,6 +55,9 @@ class _MyHomePageState extends State<MyHomePage> {
     "Scaffold",
     "Country City State",
     "Widgets",
+    "Load More",
+    "Tab Controller",
+    "Tab Bar",
   ];
 
   List<Color> colorList = [];
@@ -69,9 +72,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
   getColors() {
     for (int i = 0; i < items.length; i++) {
-      colorList.add(
-          Colors.primaries[math.Random().nextInt(Colors.primaries.length)]);
+      colorList.add(getColor());
     }
+  }
+
+  Color getColor() {
+    return Color.fromARGB(
+      255,
+      math.Random().nextInt(256),
+      math.Random().nextInt(256),
+      math.Random().nextInt(256),
+    );
   }
 
   List<Widget> createDrawerChildren() {

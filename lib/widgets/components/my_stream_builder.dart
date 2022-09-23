@@ -21,6 +21,7 @@ class _MyStreamBuilderState extends State<MyStreamBuilder> {
     yield 5;
     await Future<void>.delayed(Duration(seconds: 1));
     yield 6;
+    throw "An Error Occured";
   })();
 
   @override

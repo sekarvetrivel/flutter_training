@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_training/widgets/components/my_choice_clip.dart';
 import 'package:flutter_training/widgets/components/my_stream_builder.dart';
 
 import 'components/my_align.dart';
@@ -21,6 +22,7 @@ import 'components/my_row.dart';
 import 'components/my_search_delegate.dart';
 import 'components/my_sized_box.dart';
 import 'components/my_slider_using_adaptive.dart';
+import 'components/my_sliver_app_bar.dart';
 import 'components/my_stack.dart';
 import 'components/my_stepper.dart';
 import 'components/my_switch_list_tile_using_adaptive.dart';
@@ -78,13 +80,14 @@ class _WidgetsPageState extends State<WidgetsPage> {
             myCircularProgressIndicatorUsingAdaptive(),
             myGestureDetector(context),
             MyStreamBuilder(),
+            MyChoiceChip(),
+            mySliverAppBar(context),
           ]),
         ),
       ),
     );
   }
 }
-
 
 class Car extends StatefulWidget {
   final title;

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_training/tab_bar/tab_bar_example.dart';
+import 'package:flutter_training/tab_controller/tab_controller_example.dart';
 
 import '../alertdialog/alertdialog_example.dart';
 import '../animated_container/animated_container_example.dart';
@@ -15,6 +17,7 @@ import '../divider/divider_example.dart';
 import '../drawer/drawer_example.dart';
 import '../icons/icons_example.dart';
 import '../list_view_and_list_tile/list_view_example.dart';
+import '../load_more/load_more_example.dart';
 import '../scaffold/scaffold_example.dart';
 import '../text/text_example.dart';
 import '../text_field/text_field_example.dart';
@@ -134,6 +137,24 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         WidgetsPage(title: "Widgets"),
+      );
+      break;
+    case 19:
+      navigatorHelper(
+        context,
+        LoadMorePage(title: "Load More"),
+      );
+      break;
+    case 20:
+      navigatorHelper(
+        context,
+        TabControllerPage(title: "Tab Controller"),
+      );
+      break;
+    case 21:
+      navigatorHelper(
+        context,
+        TabBarPage(title: "Tab Bar"),
       );
       break;
   }
