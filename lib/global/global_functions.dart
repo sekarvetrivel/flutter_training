@@ -18,6 +18,7 @@ import '../list_view_and_list_tile/list_view_example.dart';
 import '../scaffold/scaffold_example.dart';
 import '../text/text_example.dart';
 import '../text_field/text_field_example.dart';
+import '../widgets/widgets_example.dart';
 
 navigateTo(BuildContext context, int index) {
   switch (index) {
@@ -127,6 +128,12 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         CSCPickerPage(title: "CSCPicker"),
+      );
+      break;
+    case 18:
+      navigatorHelper(
+        context,
+        WidgetsPage(title: "Widgets"),
       );
       break;
   }

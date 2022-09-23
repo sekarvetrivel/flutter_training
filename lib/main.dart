@@ -2,8 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import 'components/home_item_card.dart';
-import 'components/my_list_tile.dart';
+import 'home/components/home_item_card.dart';
+import 'home/components/my_list_tile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "Text",
     "Scaffold",
     "Country City State",
+    "Widgets",
   ];
 
   List<Color> colorList = [];

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 void main() {
   var number = 42;
 
@@ -14,15 +16,32 @@ void main() {
   nullabilityExample();
   nullAwareExample();
   conditionalsExample();
+  whileLoopExample();
+  collectionsExample();
+  functionsExample();
 
   printInteger(number); // This is also a single-line comment.
   notNullAssertion();
   forLoopExample();
+  classExample();
+  enumExample();
+  asyncAndAwaitExample();
+  exceptionExample();
 }
+
+var year = 1977;
+var flybyObjects = ['Jupiter', 'Saturn', 'Uranus', 'Neptune'];
 
 void variableExample() {
   var myAge = 27;
   print("My Age is $myAge\n");
+
+  var name = 'Voyager I';
+  var antennaDiameter = 3.7;
+  var image = {
+    'tags': ['saturn'],
+    'url': '//path/to/saturn.jpg'
+  };
 }
 
 void dataTypeExample() {
@@ -160,6 +179,154 @@ void conditionalsExample() {
   } else {
     print('Animal is NOT a house pet.');
   }
+
+  if (year >= 2001) {
+    print('21st century');
+  } else if (year >= 1901) {
+    print('20th century');
+  }
+
+  for (final object in flybyObjects) {
+    print(object);
+  }
+
+  for (int month = 1; month <= 12; month++) {
+    print(month);
+  }
+
+  while (year < 2016) {
+    year += 1;
+  }
+}
+
+void whileLoopExample() {
+  print("\nWhileLoop Example");
+  var i = 1;
+  while (i < 10) {
+    print(i);
+    i++;
+  }
+
+  print("\nDoWhileLoop Example");
+  i = 1;
+  do {
+    print(i);
+    i++;
+  } while (i < 10);
+
+  print("\nDoWhileLoop Continue & Break Example");
+/*  i = 1;
+  do {
+    print(i);
+    if (i == 5) {
+      continue; //it makes Infinite Loop
+    }
+    ++i;
+  } while (i < 10);*/
+
+  i = 1;
+  do {
+    print(i);
+    if (i == 5) {
+      break;
+    }
+    ++i;
+  } while (i < 10);
+}
+
+void collectionsExample() {
+  print("\nCollections Example");
+  List desserts = ['cookies', 'cupcakes', 'donuts', 'pie'];
+  final numbers = [42, -1, 299792458, 100];
+
+  final firstDessert = desserts[0];
+  print(firstDessert); // cookies
+
+  print(desserts);
+  desserts.add('cake');
+  print("cake added to Desserts - $desserts");
+// [cookies, cupcakes, donuts, pie, cake]
+
+  print(desserts);
+  desserts.remove('donuts');
+  print("donuts Removed from Desserts - $desserts");
+// [cookies, cupcakes, pie, cake]
+
+  for (final dessert in desserts) {
+    print('I love to eat $dessert.');
+  }
+
+  Map<String, int> calories = {
+    'cake': 500,
+    'donuts': 150,
+    'cookies': 100,
+  };
+  final donutCalories = calories['donuts'];
+  print("donuts calories - $donutCalories");
+
+  calories['brownieFudgeSundae'] = 1346;
+  print(calories);
+}
+
+void functionsExample() {
+  print("\nFunctions Example");
+
+  bool isBanana(String fruit) {
+    return fruit == 'banana';
+  }
+
+  int fibonacci(int n) {
+    if (n == 0 || n == 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  }
+
+  String fullName(String first, String last, [String? title]) {
+    if (title == null) {
+      return '$first $last';
+    } else {
+      return '$title $first $last';
+    }
+  }
+
+  bool withinTolerance({required int value, int min = 0, int max = 10}) {
+    return min <= value && value <= max;
+  }
+
+  final onPressed = () {
+    print('button pressed');
+  };
+
+  // refactored - much nicer to read
+  final onPressedAnonymous = () => print('button pressed');
+
+  final drinks = ['water', 'juice', 'milk'];
+  final bigDrinks = drinks.map((drink) => drink.toUpperCase());
+
+  var fruit = 'apple';
+  print(isBanana(fruit));
+
+  print(fullName('Joe', 'Howard'));
+// Joe Howard
+
+  print(fullName('Albert', 'Einstein', 'Professor'));
+// Professor Albert Einstein
+
+  print(withinTolerance(min: 1, max: 5, value: 11));
+
+  print(withinTolerance(value: 5));
+
+  onPressed();
+  onPressedAnonymous();
+
+  print(bigDrinks); // (WATER, JUICE, MILK)
+
+  var value = 20;
+  var result = fibonacci(value);
+  print("Fibonacci value of $value is $result");
+
+  var filter = flybyObjects.where((name) => name.contains('turn'));
+  filter.forEach(print);
+  print(filter.toList());
 }
 
 void stringsExample() {
@@ -187,8 +354,207 @@ void notNullAssertion() {
   assert(lineCount == null);
 }
 
+void classExample() {
+  print("\nClass Example");
+  var voyager = Spacecraft('Voyager I', DateTime(1977, 9, 5));
+  //voyager.launchYear = 12;
+  voyager.describe();
+
+  var voyager3 = Spacecraft.unlaunched('Voyager III');
+  voyager3.describe();
+}
+
+enum PlanetType { terrestrial, gas, ice }
+
+void enumExample() {
+  print("\nEnum Example");
+  final yourPlanet = Planet.mercury;
+
+  if (!yourPlanet.isGiant) {
+    print('Your planet is not a "giant planet".');
+  }
+}
+
+void asyncAndAwaitExample() {
+  const oneSecond = Duration(seconds: 2);
+
+  Future<void> printWithDelay(String message) async {
+    await Future.delayed(oneSecond);
+    print(message);
+  }
+
+  Future<void> printWithDelay2(String message) {
+    return Future.delayed(oneSecond).then((_) {
+      print(message);
+    });
+  }
+
+  Future<void> createDescriptions(Iterable<String> objects) async {
+    for (final object in objects) {
+      try {
+        var file = File('$object.txt');
+        if (await file.exists()) {
+          var modified = await file.lastModified();
+          print(
+              'File for $object already exists. It was modified on $modified.');
+          continue;
+        }
+        await file.create();
+        await file.writeAsString('Start describing $object in this file.');
+      } on IOException catch (e) {
+        print('Cannot create description for $object: $e');
+      }
+    }
+  }
+
+  Stream<String> report(Spacecraft craft, Iterable<String> objects) async* {
+    for (final object in objects) {
+      await Future.delayed(oneSecond);
+      yield '${craft.name} flies by $object';
+    }
+  }
+
+  printWithDelay("printWithDelay using async,await");
+  printWithDelay2("printWithDelay using then of delay");
+  Iterable<String> objects = ["sekar", "boomi", "rooba"];
+  createDescriptions(objects);
+  report(Spacecraft("sekar", DateTime(1995, 9, 12)), objects);
+}
+
+Future<void> exceptionExample() async {
+  var astronauts = 10;
+  if (astronauts == 0) {
+    throw StateError('No astronauts.');
+  }
+
+  try {
+    for (final object in flybyObjects) {
+      var description = await File('$object.txt').readAsString();
+      print(description);
+    }
+  } on IOException catch (e) {
+    print('Could not describe object: $e');
+  } finally {
+    flybyObjects.clear();
+  }
+}
+
+/// Enum that enumerates the different planets in our solar system
+/// and some of their properties.
+enum Planet {
+  mercury(planetType: PlanetType.terrestrial, moons: 0, hasRings: false),
+  venus(planetType: PlanetType.terrestrial, moons: 0, hasRings: false),
+  // ···
+  uranus(planetType: PlanetType.ice, moons: 27, hasRings: true),
+  neptune(planetType: PlanetType.ice, moons: 14, hasRings: true);
+
+  /// A constant generating constructor
+  const Planet(
+      {required this.planetType, required this.moons, required this.hasRings});
+
+  /// All instance variables are final
+  final PlanetType planetType;
+  final int moons;
+  final bool hasRings;
+
+  /// Enhanced enums support getters and other methods
+  bool get isGiant =>
+      planetType == PlanetType.gas || planetType == PlanetType.ice;
+}
+
 void forLoopExample() {
   for (int i = 0; i < 5; i++) {
     print('hello ${i + 1}');
+  }
+
+  var sum = 0;
+
+  for (var i = 1; i <= 10; i++) {
+    sum += i;
+  }
+  print("The sum is $sum");
+}
+
+class Spacecraft {
+  String name;
+  DateTime? launchDate;
+
+  // Read-only non-final property
+  int? get launchYear => launchDate?.year;
+
+  // Constructor, with syntactic sugar for assignment to members.
+  Spacecraft(this.name, this.launchDate) {
+    // Initialization code goes here.
+  }
+
+  // Named constructor that forwards to the default one.
+  Spacecraft.unlaunched(String name) : this(name, null);
+
+  // Method.
+  void describe() {
+    print('Spacecraft: $name');
+    // Type promotion doesn't work on getters.
+    var launchDate = this.launchDate;
+    if (launchDate != null) {
+      int years = DateTime.now().difference(launchDate).inDays ~/ 365;
+      print('Launched: $launchYear ($years years ago)');
+    } else {
+      print('Unlaunched');
+    }
+  }
+}
+
+mixin Piloted {
+  int astronauts = 1;
+
+  void describeCrew() {
+    print('Number of astronauts: $astronauts');
+  }
+}
+
+class PilotedCraft with Piloted {
+  @override
+  void describeCrew() {
+    // TODO: implement describeCrew
+    super.describeCrew();
+  }
+}
+
+class MockSpaceship implements Spacecraft {
+  @override
+  DateTime? launchDate;
+
+  @override
+  late String name;
+
+  @override
+  void describe() {
+    // TODO: implement describe
+  }
+
+  @override
+  // TODO: implement launchYear
+  int? get launchYear => throw UnimplementedError();
+}
+
+abstract class Describable {
+  void describe();
+
+  void describeWithEmphasis() {
+    print('=========');
+    describe();
+    print('=========');
+  }
+}
+
+class sampleClass implements Describable {
+  @override
+  void describe() {
+    // TODO: implement describe
+  }
+
+  @override
+  void describeWithEmphasis() {
+    // TODO: implement describeWithEmphasis
   }
 }
