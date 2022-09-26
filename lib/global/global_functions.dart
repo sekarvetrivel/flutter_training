@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_training/radio_button/radio_button_example.dart';
+import 'package:flutter_training/snackbar/snackbar_example.dart';
 import 'package:flutter_training/tab_bar/tab_bar_example.dart';
 import 'package:flutter_training/tab_controller/tab_controller_example.dart';
 
@@ -155,6 +157,18 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         TabBarPage(title: "Tab Bar"),
+      );
+      break;
+    case 22:
+      navigatorHelper(
+        context,
+        SnackbarPage(title: "SnackBar"),
+      );
+      break;
+    case 23:
+      navigatorHelper(
+        context,
+        RadioButtonPage(title: "RadioButton"),
       );
       break;
   }
