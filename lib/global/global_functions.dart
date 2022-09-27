@@ -3,6 +3,7 @@ import 'package:flutter_training/radio_button/radio_button_example.dart';
 import 'package:flutter_training/snackbar/snackbar_example.dart';
 import 'package:flutter_training/tab_bar/tab_bar_example.dart';
 import 'package:flutter_training/tab_controller/tab_controller_example.dart';
+import 'package:flutter_training/zodeak_x/zodeak_x_example.dart';
 
 import '../alertdialog/alertdialog_example.dart';
 import '../animated_container/animated_container_example.dart';
@@ -169,6 +170,12 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         RadioButtonPage(title: "RadioButton"),
+      );
+      break;
+    case 24:
+      navigatorHelper(
+        context,
+        ZodeakX(),
       );
       break;
   }

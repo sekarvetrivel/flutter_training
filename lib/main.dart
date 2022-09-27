@@ -60,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "Tab Bar",
     "SnackBar",
     "RadioButton",
+    "ZodeakX",
   ];
 
   List<Color> colorList = [];
@@ -68,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    print("init");
     this.drawerChildren = createDrawerChildren();
     getColors();
   }
@@ -114,6 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print("home");
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
