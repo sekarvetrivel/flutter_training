@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_training/global/global_functions.dart';
+import 'package:flutter_training/zodeak_x/pages/market_screen/market_view.dart';
 import 'package:provider/provider.dart';
+
+import 'pages/market_screen/market_view_model.dart';
 
 class ZodeakX extends StatelessWidget {
   const ZodeakX({super.key});
@@ -7,7 +11,7 @@ class ZodeakX extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [],
+      providers: getAllProviers(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'ZodeakX',
@@ -22,7 +26,7 @@ class ZodeakX extends StatelessWidget {
 
 getAllProviers() {
   return [
-    // ChangeNotifierProvider(create: (_) => MarketViewModel()),
+    ChangeNotifierProvider(create: (_) => MarketViewModel()),
   ];
 }
 
@@ -47,7 +51,7 @@ class _ZodeakXPageState extends State<ZodeakXPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Container(),
+      body: MarketView(),
     );
   }
 }

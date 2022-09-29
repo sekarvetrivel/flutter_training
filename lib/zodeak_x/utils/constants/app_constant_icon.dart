@@ -1,0 +1,62 @@
+/////////PNG///////////////////////PNG//////////////////////////////////////////////
+const splashDark ="assets/images/png/darksplash.png";
+const splash="assets/images/png/splash.png";
+const appLogo="assets/images/png/applogo.png";
+const appLogoDark="assets/images/png/applogodark.png";
+const user = "assets/images/png/user.png";
+const logo ="assets/images/png/logo.png";
+const leftArrow = "assets/images/png/Icon awesome-arrow-left.png";
+const darkThemeLogo = "assets/images/png/darkThemeLogo.png";
+const lightThemeLogo = "assets/images/png/lightThemeLogo.png";
+const qrCode = "assets/images/png/qrCode.png";
+const profile = "assets/images/png/profile.png";
+const paypal = "assets/images/png/Paypal.png";
+////////////////////////////////////SVG//////////////////////////////////////////////
+
+
+const backArrow="assets/images/svg/back.svg";
+const identityunverifyImage = "assets/images/svg/identityunverifyImage.svg";
+const copySecretcode = "assets/images/svg/copySecretcode.svg";
+const appStore = "assets/images/svg/App Store.svg";
+const playStore = "assets/images/svg/Play Store.svg";
+const arrowCircle="assets/images/svg/arrow-right-circle.svg";
+const envelope="assets/images/svg/envelope.svg";
+const search = "assets/images/svg/Icon awesome-search.svg";
+const scanner = "assets/images/svg/Icon ionic-md-qr-scanner.svg";
+const market = "assets/images/svg/Icon simple-googleanalytics.svg";
+const exchange = "asstes/images/svg/Icon awesome-exchange-alt.svg";
+const order ="assets/images/svg/Icon awesome-list-alt.svg";
+const wallet = "assets/images/svg/Icon awesome-wallet.svg";
+const loginImage = "assets/images/svg/Icon open-account-login.svg";
+const user_circle ="assets/images/svg/Icon awesome-user-circle.svg";
+const dashboardImage = "assets/images/svg/Icon material-dashboard.svg";
+const currencyImage = "assets/images/svg/Icon awesome-coins.svg";
+const marketImage = "assets/images/svg/Icon simple-googleanalytics.svg";
+const exchangeImage = "assets/images/svg/exchange.svg";
+const walletImage = "assets/images/svg/walletImage.svg";
+const bankDetailsImage = "assets/images/svg/Icon awesome-piggy-bank.svg";
+const orderImage = "assets/images/svg/Icon awesome-list-alt.svg";
+const securityImage ="assets/images/svg/Icon material-security.svg";
+const referralImage = "assets/images/svg/Icon material-link.svg";
+const settingImage = "assets/images/svg/Icon ionic-ios-settings.svg";
+const eyeSlash = "assets/images/svg/eye.svg";
+const cancel = "assets/images/svg/Icon metro-cancel.svg";
+const dashboard ="assets/images/svg/Icon material-dashboard.svg";
+const coins = "assets/images/svg/Icon awesome-coins.svg";
+const login = "assets/images/svg/Icon open-account-login.svg";
+const bitcoin = "assets/images/svg/Bitcoin.svg";
+const ethereum = "assets/images/svg/Ethereum.svg";
+const sandBox = "assets/images/svg/SandBox.svg";
+const withdrawIcon = "assets/images/svg/withdraw.svg";
+const depositIcon = "assets/images/svg/deposit.svg";
+const referralFriendImage = "assets/images/svg/Referral.svg";
+const copy = "assets/images/svg/copy.svg";
+const close = "assets/images/svg/cancel.svg";
+const darklogo = "assets/images/svg/Zodeak-X-Dark.svg";
+const lightlogo = "assets/images/svg/Zodeak-X-Light.svg";
+const userImage = "assets/images/svg/user.svg";
+const doneVerify = "assets/images/svg/done_verify.svg";
+const rejectedIcon = "assets/images/svg/rejectedIcon.svg";
+const searchIcon = "assets/images/svg/search.svg";
+////////////////////////////////////GIF//////////////////////////////////////////////
+const loader = "assets/images/gif/loader.gif";
