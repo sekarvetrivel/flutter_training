@@ -3,6 +3,7 @@ import 'package:flutter_training/radio_button/radio_button_example.dart';
 import 'package:flutter_training/snackbar/snackbar_example.dart';
 import 'package:flutter_training/tab_bar/tab_bar_example.dart';
 import 'package:flutter_training/tab_controller/tab_controller_example.dart';
+import 'package:flutter_training/training_task/training_task.dart';
 import 'package:flutter_training/zodeak_x/zodeak_x_example.dart';
 
 import '../alertdialog/alertdialog_example.dart';
@@ -176,6 +177,12 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         ZodeakX(),
+      );
+      break;
+    case 25:
+      navigatorHelper(
+        context,
+        TrainingTask(),
       );
       break;
   }

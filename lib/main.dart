@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "SnackBar",
     "RadioButton",
     "ZodeakX",
+    "Training Task",
   ];
 
   List<Color> colorList = [];
