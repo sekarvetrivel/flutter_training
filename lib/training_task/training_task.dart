@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/training_task/on_boarding_screen/on_boarding_screen.dart';
 import 'package:provider/provider.dart';
 
 import '../zodeak_x/pages/market_screen/market_view_model.dart';
+import 'on_boarding_screen/screen_one.dart';
 
 class TrainingTask extends StatelessWidget {
   const TrainingTask({super.key});
@@ -50,7 +50,7 @@ class _TrainingTaskPageState extends State<TrainingTaskPage> {
       // appBar: AppBar(
       //   title: Text(widget.title),
       // ),
-      body: OnBoardingScreen(),
+      body: OnboardingScreenOne(),
     );
   }
 }
