@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../zodeak_x/pages/market_screen/market_view_model.dart';
-import 'on_boarding_screen/screen_one.dart';
+import 'on_boarding_screen/on_boarding_screen.dart';
 
 class TrainingTask extends StatelessWidget {
   const TrainingTask({super.key});
