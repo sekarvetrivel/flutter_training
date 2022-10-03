@@ -8,6 +8,8 @@ import 'package:flutter_training/training_task/widgets/custom_stack.dart';
 import 'package:flutter_training/training_task/widgets/custom_text.dart';
 import 'package:provider/provider.dart';
 
+import '../../../global/global_functions.dart';
+import '../../login_screen/view/login_screen.dart';
 import '../components/on_boarding_page_slide.dart';
 
 var horizontalPadding = 0.05;
@@ -30,6 +32,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Provider(
       create: (BuildContext context) => OnBoardingViewModel(),
       child: CustomScaffold(
+        resizeToAvoidBottomInset: false,
           body: CustomStack(
         alignment: Alignment.center,
         children: [
@@ -156,6 +159,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CustomButton(
+                press: () {
+                  navigateToPageSTFull(
+                      context, LoginScreen(title: "Login Screen"));
+                },
                 text: "Login",
                 radius: 30,
                 buttonColor: Colors.black,
@@ -178,6 +185,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               CustomButton(
+                press: () {
+                  print("Register Pressed");
+                },
                 text: "Register",
                 radius: 30,
                 buttonColor: Colors.yellow,

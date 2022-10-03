@@ -3,6 +3,7 @@ import 'package:flutter_training/training_task/on_boarding_screen/view_model/on_
 import 'package:flutter_training/training_task/widgets/custom_scaffold.dart';
 import 'package:provider/provider.dart';
 
+import 'login_screen/view_model/login_view_model.dart';
 import 'on_boarding_screen/view/on_boarding_screen.dart';
 
 class TrainingTask extends StatelessWidget {
@@ -15,8 +16,10 @@ class TrainingTask extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Training Task',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+        theme: ThemeData().copyWith(
+          colorScheme: ThemeData().colorScheme.copyWith(
+                primary: Color(0xff5376a5),
+              ),
         ),
         home: const TrainingTaskPage(title: 'Training Task'),
       ),
@@ -35,7 +38,12 @@ class TrainingTaskPage extends StatefulWidget {
 
 getAllProviers() {
   return [
-    ChangeNotifierProvider(create: (_) => OnBoardingViewModel()),
+    ChangeNotifierProvider(
+      create: (_) => OnBoardingViewModel(),
+    ),
+    ChangeNotifierProvider(
+      create: (_) => LoginViewModel(),
+    ),
   ];
 }
 
@@ -48,6 +56,7 @@ class _TrainingTaskPageState extends State<TrainingTaskPage> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
+      resizeToAvoidBottomInset: false,
       // appBar: AppBar(
       //   title: Text(widget.title),
       // ),

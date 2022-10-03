@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/training_task/widgets/custom_icon_button.dart';
 
 class CustomScaffold extends StatelessWidget {
   Color? color = Colors.black;
@@ -9,6 +8,7 @@ class CustomScaffold extends StatelessWidget {
   final Widget? drawer;
   final Widget? body;
   final Widget? text;
+  final bool? resizeToAvoidBottomInset;
 
   CustomScaffold({
     Key? key,
@@ -19,11 +19,13 @@ class CustomScaffold extends StatelessWidget {
     this.bottomNavigationBar,
     this.drawer,
     this.body,
+    this.resizeToAvoidBottomInset,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       key: key,
       bottomNavigationBar: bottomNavigationBar,
       drawer: drawer,

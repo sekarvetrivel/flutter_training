@@ -1,6 +1,6 @@
 import 'package:graphql/client.dart';
 
-import '../../utils/constants/AppConstants.dart';
+import '../../utils/constants/app_constants.dart';
 
 class GraphQLWebservice{
   /// App Web services
