@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_training/training_task/widgets/custom_container.dart';
+import 'package:flutter_training/training_task/widgets/custom_text.dart';
 
-class CustomCurvedButton extends StatefulWidget {
+class CustomButton extends StatefulWidget {
   final String text;
   final VoidCallback? press;
   final double radius;
@@ -13,7 +15,7 @@ class CustomCurvedButton extends StatefulWidget {
   final double width;
   final BorderRadius borderRadius;
 
-  CustomCurvedButton({
+  CustomButton({
     super.key,
     required this.text,
     this.press,
@@ -29,16 +31,16 @@ class CustomCurvedButton extends StatefulWidget {
   });
 
   @override
-  State<CustomCurvedButton> createState() => _CustomCurvedButtonState();
+  State<CustomButton> createState() => _CustomButtonState();
 }
 
-class _CustomCurvedButtonState extends State<CustomCurvedButton> {
+class _CustomButtonState extends State<CustomButton> {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: GestureDetector(
         onTap: widget.press,
-        child: Container(
+        child: CustomContainer(
           height: widget.height,
           width: widget.width,
           decoration: BoxDecoration(
@@ -57,9 +59,13 @@ class _CustomCurvedButtonState extends State<CustomCurvedButton> {
                   ),
           ),
           child: Center(
-            child: Text(
-              widget.text,
-              style: TextStyle(color: widget.textColor, fontWeight: FontWeight.bold, fontSize: 20,),
+            child: CustomText(
+              text: widget.text,
+              style: TextStyle(
+                color: widget.textColor,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
             ),
           ),
         ),

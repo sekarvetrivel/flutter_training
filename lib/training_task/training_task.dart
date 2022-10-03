@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_training/training_task/on_boarding_screen/view_model/on_boarding_view_model.dart';
+import 'package:flutter_training/training_task/widgets/custom_scaffold.dart';
 import 'package:provider/provider.dart';
 
-import '../zodeak_x/pages/market_screen/market_view_model.dart';
-import 'on_boarding_screen/on_boarding_screen.dart';
+import 'on_boarding_screen/view/on_boarding_screen.dart';
 
 class TrainingTask extends StatelessWidget {
   const TrainingTask({super.key});
@@ -23,12 +24,6 @@ class TrainingTask extends StatelessWidget {
   }
 }
 
-getAllProviers() {
-  return [
-    ChangeNotifierProvider(create: (_) => MarketViewModel()),
-  ];
-}
-
 class TrainingTaskPage extends StatefulWidget {
   const TrainingTaskPage({super.key, required this.title});
 
@@ -36,6 +31,12 @@ class TrainingTaskPage extends StatefulWidget {
 
   @override
   State<TrainingTaskPage> createState() => _TrainingTaskPageState();
+}
+
+getAllProviers() {
+  return [
+    ChangeNotifierProvider(create: (_) => OnBoardingViewModel()),
+  ];
 }
 
 class _TrainingTaskPageState extends State<TrainingTaskPage> {
@@ -46,11 +47,11 @@ class _TrainingTaskPageState extends State<TrainingTaskPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CustomScaffold(
       // appBar: AppBar(
       //   title: Text(widget.title),
       // ),
-      body: OnboardingScreenOne(),
+      body: OnboardingScreen(),
     );
   }
 }
