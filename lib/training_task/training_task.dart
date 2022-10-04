@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_training/training_task/home_screen/view_model/home_view_model.dart';
 import 'package:flutter_training/training_task/on_boarding_screen/view_model/on_boarding_view_model.dart';
 import 'package:flutter_training/training_task/widgets/custom_scaffold.dart';
 import 'package:provider/provider.dart';
@@ -43,6 +44,9 @@ getAllProviers() {
     ),
     ChangeNotifierProvider(
       create: (_) => LoginViewModel(),
+    ),
+    ChangeNotifierProvider(
+      create: (_) => HomeViewModel(),
     ),
   ];
 }

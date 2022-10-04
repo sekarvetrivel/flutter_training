@@ -9,9 +9,11 @@ class CustomScaffold extends StatelessWidget {
   final Widget? body;
   final Widget? text;
   final bool? resizeToAvoidBottomInset;
+  final appbar;
 
   CustomScaffold({
     Key? key,
+    this.appbar,
     this.color,
     this.image,
     this.text,
@@ -25,6 +27,7 @@ class CustomScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: appbar,
       resizeToAvoidBottomInset: resizeToAvoidBottomInset,
       key: key,
       bottomNavigationBar: bottomNavigationBar,

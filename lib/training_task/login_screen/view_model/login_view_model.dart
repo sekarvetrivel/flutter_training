@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../global/global_functions.dart';
 import '../../../zodeak_x/networking/graphql/exception/handle_response.dart';
 import '../../../zodeak_x/repository/zodeak_x_repository.dart';
 import '../../../zodeak_x/utils/core/encrypt_and_decrypt.dart';
+import '../../home_screen/view/home_screen.dart';
+import '../../utils/reveal_route.dart';
 import '../model/login_model.dart';
-import '../view/login_screen.dart';
 
 class LoginViewModel extends ChangeNotifier {
   bool passwordVisible = false;
@@ -33,6 +33,7 @@ class LoginViewModel extends ChangeNotifier {
 
   /// getLogin User Details
   setLoginUserDetails(LoginModel? loginModel, context) {
+    Size size = MediaQuery.of(context).size;
     userLoginModel = loginModel;
     if (loginModel?.statusCode == 400) {
       if (loginModel?.result == null) {
@@ -43,7 +44,16 @@ class LoginViewModel extends ChangeNotifier {
       }
     } else {
       print("Login Success");
-      navigateToPageSTFull(context, LoginScreen(title: "Login Screen"));
+      Navigator.push(
+          context,
+          RevealRoute(
+            page: HomeScreen(
+              title: "Home",
+            ),
+            maxRadius: 0.0,
+            centerAlignment: Alignment.center,
+            centerOffset: Offset(size.width / 2, size.height / 2),
+          ));
     }
     final _snackBar = SnackBar(
       content: Text(userLoginModel?.statusMessage ?? ""),

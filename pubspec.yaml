@@ -48,6 +48,7 @@ dependencies:
   flutter_svg: ^1.0.3
   encrypt: ^5.0.1
   lottie: ^1.4.3
+  rxdart: ^0.27.5
 
 dev_dependencies:
   flutter_test:
