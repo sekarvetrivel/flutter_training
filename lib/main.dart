@@ -68,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "ZodeakX",
     "Training Task",
     "Hive",
+    "AbsorbPointer",
   ];
 
   List<Color> colorList = [];

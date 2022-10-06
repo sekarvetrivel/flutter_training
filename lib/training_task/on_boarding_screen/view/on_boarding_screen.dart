@@ -23,10 +23,17 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   late OnBoardingViewModel viewModel;
+  PageController controller = PageController();
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    PageController controller = PageController();
     viewModel = context.watch<OnBoardingViewModel>();
     Size size = MediaQuery.of(context).size;
     return Provider(
