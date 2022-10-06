@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/hive/hive_example.dart';
+import 'package:flutter_training/hive/pages/info_screen.dart';
 import 'package:flutter_training/radio_button/radio_button_example.dart';
 import 'package:flutter_training/snackbar/snackbar_example.dart';
 import 'package:flutter_training/tab_bar/tab_bar_example.dart';
@@ -189,7 +189,7 @@ navigateTo(BuildContext context, int index) {
     case 26:
       navigatorHelper(
         context,
-        HivePage(title: "Hive Example"),
+        InfoScreen(),
       );
       break;
   }

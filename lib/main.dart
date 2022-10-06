@@ -1,11 +1,16 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_training/hive/model/people.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'home/components/home_item_card.dart';
 import 'home/components/my_list_tile.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(PeopleAdapter());
+  await Hive.openBox('peopleBox');
   runApp(const MyApp());
 }
 

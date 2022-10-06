@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_training/training_task/home_screen/view_model/home_view_model.dart';
 import 'package:flutter_training/training_task/widgets/custom_scaffold.dart';
 import 'package:flutter_training/training_task/widgets/custom_sized_box.dart';
 import 'package:http/http.dart' as http;
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -82,170 +84,199 @@ class _HomeScreenState extends State<HomeScreen> {
         resizeToAvoidBottomInset: true,
         body: Padding(
           padding: EdgeInsets.all(size.height * 0.05),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  CustomButton(
-                    press: () {
-                      viewModel.changeView("stream");
-                    },
-                    text: "Stream Builder",
-                    radius: 30,
-                    buttonColor: login,
-                    borderColor: Colors.transparent,
-                    textColor: !viewModel.switchView ? Colors.white : Colors.black,
-                    width: size.width * 0.75,
-                    height: size.height * 0.05,
-                    isBorderedButton: false,
-                    borderWidth: 0,
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(100),
-                    ),
-                  ),
-                ],
-              ),
-              CustomSizedBox(
-                height: size.height * 0.02,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  CustomButton(
-                    press: () {
-                      viewModel.changeView("future");
-                    },
-                    text: "Future Builder",
-                    radius: 30,
-                    buttonColor: login,
-                    borderColor: Colors.transparent,
-                    textColor: viewModel.switchView ? Colors.white : Colors.black,
-                    width: size.width * 0.75,
-                    height: size.height * 0.05,
-                    isBorderedButton: false,
-                    borderWidth: 0,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(100),
-                    ),
-                  ),
-                ],
-              ),
-              Expanded(
-                  child: Padding(
-                padding: EdgeInsets.only(top: size.height * 0.05),
-                child: Card(
-                  child: viewModel.switchView
-                      ? StreamBuilder(
-                          stream: _postsController.stream,
-                          builder:
-                              (BuildContext context, AsyncSnapshot snapshot) {
-                            print('Has error: ${snapshot.hasError}');
-                            print('Has data: ${snapshot.hasData}');
-                            print('Snapshot Data ${snapshot.data}');
-
-                            if (snapshot.hasError) {
-                              return Text(snapshot.error.toString());
-                            }
-
-                            if (snapshot.hasData) {
-                              return Column(
-                                children: <Widget>[
-                                  Expanded(
-                                    child: Scrollbar(
-                                      child: RefreshIndicator(
-                                        onRefresh: _handleRefresh,
-                                        child: ListView.builder(
-                                          physics:
-                                              const AlwaysScrollableScrollPhysics(),
-                                          itemCount: snapshot.data.length,
-                                          itemBuilder: (context, index) {
-                                            var post = snapshot.data[index];
-                                            return ListTile(
-                                              title: Text(
-                                                  post['title']['rendered']),
-                                              subtitle: Text(post['date']),
-                                            );
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              );
-                            }
-
-                            if (snapshot.connectionState !=
-                                ConnectionState.done) {
-                              return Center(
-                                child: CircularProgressIndicator(),
-                              );
-                            }
-
-                            if (!snapshot.hasData &&
-                                snapshot.connectionState ==
-                                    ConnectionState.done) {
-                              return Text('No Posts');
-                            }
-
-                            return SizedBox();
-                          },
-                        )
-                      : FutureBuilder(
-                          builder: (ctx, snapshot) {
-                            // Checking if future is resolved or not
-                            if (snapshot.connectionState ==
-                                ConnectionState.done) {
-                              // If we got an error
-                              if (snapshot.hasError) {
-                                return Center(
-                                  child: Text(
-                                    '${snapshot.error} occurred',
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                );
-
-                                // if we got our data
-                              } else if (snapshot.hasData) {
-                                // Extracting data from snapshot object
-                                //final data = snapshot.data as String;
-                                return Column(
-                                  children: <Widget>[
-                                    Expanded(
-                                      child: Scrollbar(
-                                        child: ListView.builder(
-                                          physics:
-                                              const AlwaysScrollableScrollPhysics(),
-                                          itemCount: snapshot.data.length,
-                                          itemBuilder: (context, index) {
-                                            var post = snapshot.data[index];
-                                            return ListTile(
-                                              title: Text(
-                                                  post['title']['rendered']),
-                                              subtitle: Text(post['date']),
-                                            );
-                                          },
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                );
-                              }
-                            }
-
-                            // Displaying LoadingSpinner to indicate waiting state
-                            return Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          },
-
-                          // Future that needs to be resolved
-                          // inorder to display something on the Canvas
-                          future: fetchPost(100),
+          child: StreamBuilder(
+            stream: Connectivity().onConnectivityChanged,
+            builder: (context, AsyncSnapshot<ConnectivityResult> snapshot) {
+              return snapshot.data == ConnectivityResult.mobile ||
+                      snapshot.data == ConnectivityResult.wifi
+                  ? Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            CustomButton(
+                              press: () {
+                                viewModel.changeView("stream");
+                              },
+                              text: "Stream Builder",
+                              radius: 30,
+                              buttonColor: login,
+                              borderColor: Colors.transparent,
+                              textColor: !viewModel.switchView
+                                  ? Colors.white
+                                  : Colors.black,
+                              width: size.width * 0.75,
+                              height: size.height * 0.05,
+                              isBorderedButton: false,
+                              borderWidth: 0,
+                              borderRadius: BorderRadius.only(
+                                bottomRight: Radius.circular(100),
+                              ),
+                            ),
+                          ],
                         ),
-                ),
-              ))
-            ],
+                        CustomSizedBox(
+                          height: size.height * 0.02,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            CustomButton(
+                              press: () {
+                                viewModel.changeView("future");
+                              },
+                              text: "Future Builder",
+                              radius: 30,
+                              buttonColor: login,
+                              borderColor: Colors.transparent,
+                              textColor: viewModel.switchView
+                                  ? Colors.white
+                                  : Colors.black,
+                              width: size.width * 0.75,
+                              height: size.height * 0.05,
+                              isBorderedButton: false,
+                              borderWidth: 0,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(100),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Expanded(
+                            child: Padding(
+                          padding: EdgeInsets.only(top: size.height * 0.05),
+                          child: Card(
+                            child: viewModel.switchView
+                                ? StreamBuilder(
+                                    stream: _postsController.stream,
+                                    builder: (BuildContext context,
+                                        AsyncSnapshot snapshot) {
+                                      print('Has error: ${snapshot.hasError}');
+                                      print('Has data: ${snapshot.hasData}');
+                                      print('Snapshot Data ${snapshot.data}');
+
+                                      if (snapshot.hasError) {
+                                        return Text(snapshot.error.toString());
+                                      }
+
+                                      if (snapshot.hasData) {
+                                        return Column(
+                                          children: <Widget>[
+                                            Expanded(
+                                              child: Scrollbar(
+                                                child: RefreshIndicator(
+                                                  onRefresh: _handleRefresh,
+                                                  child: ListView.builder(
+                                                    physics:
+                                                        const AlwaysScrollableScrollPhysics(),
+                                                    itemCount:
+                                                        snapshot.data.length,
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      var post =
+                                                          snapshot.data[index];
+                                                      return ListTile(
+                                                        title: Text(
+                                                            post['title']
+                                                                ['rendered']),
+                                                        subtitle:
+                                                            Text(post['date']),
+                                                      );
+                                                    },
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        );
+                                      }
+
+                                      if (snapshot.connectionState !=
+                                          ConnectionState.done) {
+                                        return Center(
+                                          child: CircularProgressIndicator(),
+                                        );
+                                      }
+
+                                      if (!snapshot.hasData &&
+                                          snapshot.connectionState ==
+                                              ConnectionState.done) {
+                                        return Text('No Posts');
+                                      }
+
+                                      return SizedBox();
+                                    },
+                                  )
+                                : FutureBuilder(
+                                    builder: (ctx, snapshot) {
+                                      // Checking if future is resolved or not
+                                      if (snapshot.connectionState ==
+                                          ConnectionState.done) {
+                                        // If we got an error
+                                        if (snapshot.hasError) {
+                                          return Center(
+                                            child: Text(
+                                              '${snapshot.error} occurred',
+                                              style: TextStyle(fontSize: 18),
+                                            ),
+                                          );
+
+                                          // if we got our data
+                                        } else if (snapshot.hasData) {
+                                          // Extracting data from snapshot object
+                                          //final data = snapshot.data as String;
+                                          return Column(
+                                            children: <Widget>[
+                                              Expanded(
+                                                child: Scrollbar(
+                                                  child: ListView.builder(
+                                                    physics:
+                                                        const AlwaysScrollableScrollPhysics(),
+                                                    itemCount:
+                                                        snapshot.data.length,
+                                                    itemBuilder:
+                                                        (context, index) {
+                                                      var post =
+                                                          snapshot.data[index];
+                                                      return ListTile(
+                                                        title: Text(
+                                                            post['title']
+                                                                ['rendered']),
+                                                        subtitle:
+                                                            Text(post['date']),
+                                                      );
+                                                    },
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          );
+                                        }
+                                      }
+
+                                      // Displaying LoadingSpinner to indicate waiting state
+                                      return Center(
+                                        child: CircularProgressIndicator(),
+                                      );
+                                    },
+
+                                    // Future that needs to be resolved
+                                    // inorder to display something on the Canvas
+                                    future: fetchPost(100),
+                                  ),
+                          ),
+                        ))
+                      ],
+                    )
+                  : Center(
+                      child: Lottie.asset(
+                        'assets/images/lottie/no_connection.json',
+                        repeat: true,
+                        reverse: false,
+                        animate: true,
+                      ),
+                    );
+            },
           ),
         ),
       ),
