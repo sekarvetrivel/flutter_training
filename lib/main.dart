@@ -69,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "Training Task",
     "Hive",
     "AbsorbPointer",
+    "Custom Scroll",
   ];
 
   List<Color> colorList = [];

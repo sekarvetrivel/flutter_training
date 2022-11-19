@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_training/absorb_pointer/absorb_pointer_example.dart';
+import 'package:flutter_training/custom_scroll/custom_scroll_example.dart';
 import 'package:flutter_training/hive/pages/info_screen.dart';
 import 'package:flutter_training/radio_button/radio_button_example.dart';
 import 'package:flutter_training/snackbar/snackbar_example.dart';
@@ -197,6 +198,12 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         AbsorbPointerPage(title: "AbsorbPointer"),
+      );
+      break;
+    case 28:
+      navigatorHelper(
+        context,
+        CustomScrollPage(title: "Custom Scroll"),
       );
       break;
   }
