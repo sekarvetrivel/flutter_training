@@ -18,4 +18,10 @@ class ZodeakXRepository {
         await apiProvider.MutationWithParams(commonMutations.loginUser, params);
     return LoginModel.fromJson(loginUserResponse);
   }
+
+  Future<LoginModel> fetchMarketPrice(Map<String, dynamic> mutateUserParams) async{
+    final dashBoardBalanceResponse = await apiProvider.MutationWithParams(commonMutations.getMarketPrice, mutateUserParams);
+    return LoginModel.fromJson(dashBoardBalanceResponse);
+  }
+
 }

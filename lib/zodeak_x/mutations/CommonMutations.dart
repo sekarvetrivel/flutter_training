@@ -18,4 +18,14 @@ class CommonMutations {
   }
 }
 ''';
+  var getMarketPrice = r'''
+  mutation getMarketPrice($data: openOrderInput) {
+  getMarketPrice(openOrderInput: $data) {
+    status_code
+    status_message
+    result
+    __typename
+  }
+}
+''';
 }

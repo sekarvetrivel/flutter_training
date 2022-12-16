@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_training/absorb_pointer/absorb_pointer_example.dart';
+import 'package:flutter_training/complex_ui/complex_ui_example.dart';
 import 'package:flutter_training/custom_scroll/custom_scroll_example.dart';
 import 'package:flutter_training/hive/pages/info_screen.dart';
+import 'package:flutter_training/radial_hero/radial_hero_example.dart';
 import 'package:flutter_training/radio_button/radio_button_example.dart';
 import 'package:flutter_training/snackbar/snackbar_example.dart';
 import 'package:flutter_training/tab_bar/tab_bar_example.dart';
@@ -204,6 +206,18 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         CustomScrollPage(title: "Custom Scroll"),
+      );
+      break;
+    case 29:
+      navigatorHelper(
+        context,
+        ComplexUIPage(title: "Complex UI"),
+      );
+      break;
+    case 30:
+      navigatorHelper(
+        context,
+        RadialHeroPage(),
       );
       break;
   }
