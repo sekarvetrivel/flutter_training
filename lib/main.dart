@@ -72,6 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "Custom Scroll",
     "Complex UI",
     "Radial Hero",
+    "Calculator",
   ];
 
   List<Color> colorList = [];
