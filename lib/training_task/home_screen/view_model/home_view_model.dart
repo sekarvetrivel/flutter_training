@@ -7,12 +7,19 @@ import '../../../zodeak_x/repository/zodeak_x_repository.dart';
 class HomeViewModel extends ChangeNotifier {
   List<ListOfTradePairs>? viewModelTradePairs;
   bool switchView = false;
+  bool switchValue = false;
 
   void changeView(String type) {
     if (type == "stream")
       switchView = true;
     else
       switchView = false;
+    notifyListeners();
+  }
+
+
+  void setSwitch() {
+    switchValue = !switchValue;
     notifyListeners();
   }
 

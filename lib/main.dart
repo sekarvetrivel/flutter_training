@@ -2,7 +2,9 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_training/hive/model/people.dart';
+import 'package:flutter_training/training_task/training_task.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:provider/provider.dart';
 
 import 'home/components/home_item_card.dart';
 import 'home/components/my_list_tile.dart';
@@ -19,13 +21,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Training',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: getAllProviers(),
+      child: MaterialApp(
+        navigatorKey: NavigationService.navigatorKey,
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Training',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const MyHomePage(title: 'Flutter Training'),
       ),
-      home: const MyHomePage(title: 'Flutter Training'),
     );
   }
 }
@@ -73,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "Complex UI",
     "Radial Hero",
     "Calculator",
+    "Custom Dialog",
   ];
 
   List<Color> colorList = [];
@@ -156,4 +163,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
+
+class NavigationService {
+  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_training/absorb_pointer/absorb_pointer_example.dart';
 import 'package:flutter_training/calculator/calculator_example.dart';
 import 'package:flutter_training/complex_ui/complex_ui_example.dart';
+import 'package:flutter_training/custom_dialog/custom_dialog_example.dart';
 import 'package:flutter_training/custom_scroll/custom_scroll_example.dart';
 import 'package:flutter_training/hive/pages/info_screen.dart';
 import 'package:flutter_training/radial_hero/radial_hero_example.dart';
@@ -225,6 +226,12 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         CalculatorPage(title: "Calculator"),
+      );
+      break;
+    case 32:
+      navigatorHelper(
+        context,
+        CustomDialogPage(title: "Custom Dialog"),
       );
       break;
   }
