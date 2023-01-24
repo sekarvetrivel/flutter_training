@@ -80,6 +80,8 @@ class _MyHomePageState extends State<MyHomePage> {
     "Radial Hero",
     "Calculator",
     "Custom Dialog",
+    "Slidable List",
+    "Slider Button",
   ];
 
   List<Color> colorList = [];
