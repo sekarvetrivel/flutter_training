@@ -7,6 +7,7 @@ import 'package:flutter_training/custom_scroll/custom_scroll_example.dart';
 import 'package:flutter_training/hive/pages/info_screen.dart';
 import 'package:flutter_training/radial_hero/radial_hero_example.dart';
 import 'package:flutter_training/radio_button/radio_button_example.dart';
+import 'package:flutter_training/screen_util/screen_util_example.dart';
 import 'package:flutter_training/slidable_list_items/slidable_list_items_example.dart';
 import 'package:flutter_training/snackbar/snackbar_example.dart';
 import 'package:flutter_training/tab_bar/tab_bar_example.dart';
@@ -246,6 +247,12 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         SwipeOnOffButton(onConfirmation: () {  },),
+      );
+      break;
+    case 35:
+      navigatorHelper(
+        context,
+        ScreenUtilPage(title: "Slidable Util"),
       );
       break;
   }
