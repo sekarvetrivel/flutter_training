@@ -9,7 +9,7 @@ import '../models/device_details.dart';
 class AppConstants with ChangeNotifier{
   /// Variable Declaration
   /// WebConstants
-  String baseUrl = "http://frontloops.zodeak-dev.com/graphql"; // Live URL
+  String baseUrl = "https://frontloops.zodeak-dev.com/graphql"; // Live URL
   String demoUrl = "http://192.168.0.228:3000/graphql"; // Demo URL
   String secretCode = '0kYUuE4dzbi7tQxWHA2D7g==';// Api secret
   bool isdemo = false; // Need to run demo
@@ -17,7 +17,7 @@ class AppConstants with ChangeNotifier{
 
   DeviceInfoPlugin deviceInfo = DeviceInfoPlugin(); // Get Device Details
   DeviceDetails? deviceDetails;
-  ValueNotifier<String> userToken = ValueNotifier('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjIyZWVmOTAzZTc3ODUzZGMxZGUyYTZkIiwiZGQiOnsiaXAiOiIxMzYuMjMyLjIyMi4xMzAiLCJsb2NhdGlvbiI6IiwgSW5kaWEiLCJkZXZpY2UiOiJkZXNrdG9wIiwic291cmNlIjoid2ViIiwib3MiOiJMaW51eCA2NCIsImJyb3dzZXIiOiJDaHJvbWUiLCJwbGF0Zm9ybSI6IkxpbnV4In0sImlhdCI6MTY1MDUzNzQ0NiwiZXhwIjoxNjUwNTM5MjQ2fQ.JQeTbnrGYrf4Vt2qBxj79PbC7AZkRIGsg8sulZBtwpI'); // User Token
+  ValueNotifier<String> userToken = ValueNotifier('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjMwNzZmNTU0NzQzMTI0YjFiMTMzZmNlIiwiZGQiOnsiaXAiOiIxMzYuMjMyLjIyMi4xMzAiLCJsb2NhdGlvbiI6IiwgSW5kaWEiLCJkZXZpY2UiOiJkZXNrdG9wIiwic291cmNlIjoid2ViIiwib3MiOiJPUyBYIiwiYnJvd3NlciI6IkNocm9tZSIsInBsYXRmb3JtIjoiQXBwbGUgTWFjIn0sImlhdCI6MTY3NTMzMTIwOSwiZXhwIjoxNjc1MzMzMDA5fQ._9dWXe89qrAHfYi74gkEw-X3E_HLjSnX9cvWdkPe058'); // User Token
   ValueNotifier<bool> userLoginStatus = ValueNotifier(false);
   ValueNotifier<String> userEmail = ValueNotifier('ZodeakX@gmail.com');
   ValueNotifier<String> userCurrency = ValueNotifier("RUB");

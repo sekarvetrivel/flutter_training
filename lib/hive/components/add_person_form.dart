@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/hive/model/people.dart';
+import 'package:fluttertraining/hive/model/people.dart';
 import 'package:hive/hive.dart';
 
 class AddPersonForm extends StatefulWidget {

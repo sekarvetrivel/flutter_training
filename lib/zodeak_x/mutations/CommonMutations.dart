@@ -28,4 +28,17 @@ class CommonMutations {
   }
 }
 ''';
+  var getBraintreeClientToken = r'''
+query
+getBraintreeClientToken{
+  getBraintreeClientToken{
+    status_code
+    status_message
+    result {
+      clientToken
+      success
+    }
+  }
+}
+''';
 }

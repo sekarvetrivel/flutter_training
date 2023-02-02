@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/column/pages/vertical_direction/column_down.dart';
-import 'package:flutter_training/column/pages/vertical_direction/column_up.dart';
+import 'package:fluttertraining/column/pages/vertical_direction/column_down.dart';
+import 'package:fluttertraining/column/pages/vertical_direction/column_up.dart';
 
 import '../../global/global_functions.dart';
 import 'main_axis_size/column_max.dart';

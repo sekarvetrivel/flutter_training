@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/widgets/components/my_choice_clip.dart';
-import 'package:flutter_training/widgets/components/my_stream_builder.dart';
+import 'package:fluttertraining/widgets/components/my_choice_clip.dart';
+import 'package:fluttertraining/widgets/components/my_stream_builder.dart';
 
 import 'components/my_align.dart';
 import 'components/my_aspect_ratio.dart';

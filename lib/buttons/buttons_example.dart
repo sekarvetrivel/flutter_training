@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/buttons/components/my_choice_card.dart';
+import 'package:fluttertraining/buttons/components/my_choice_card.dart';
 
 import 'components/my_switch_screen.dart';
 

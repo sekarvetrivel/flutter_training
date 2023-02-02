@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/training_task/widgets/custom_container.dart';
-import 'package:flutter_training/training_task/widgets/custom_text.dart';
+import 'package:fluttertraining/training_task/widgets/custom_container.dart';
+import 'package:fluttertraining/training_task/widgets/custom_text.dart';
 
 class CustomButton extends StatefulWidget {
   final String text;

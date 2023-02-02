@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/absorb_pointer/absorb_pointer_example.dart';
-import 'package:flutter_training/calculator/calculator_example.dart';
-import 'package:flutter_training/complex_ui/complex_ui_example.dart';
-import 'package:flutter_training/custom_dialog/custom_dialog_example.dart';
-import 'package:flutter_training/custom_scroll/custom_scroll_example.dart';
-import 'package:flutter_training/hive/pages/info_screen.dart';
-import 'package:flutter_training/radial_hero/radial_hero_example.dart';
-import 'package:flutter_training/radio_button/radio_button_example.dart';
-import 'package:flutter_training/screen_util/screen_util_example.dart';
-import 'package:flutter_training/slidable_list_items/slidable_list_items_example.dart';
-import 'package:flutter_training/snackbar/snackbar_example.dart';
-import 'package:flutter_training/tab_bar/tab_bar_example.dart';
-import 'package:flutter_training/tab_controller/tab_controller_example.dart';
-import 'package:flutter_training/training_task/training_task.dart';
-import 'package:flutter_training/zodeak_x/zodeak_x_example.dart';
+import 'package:fluttertraining/absorb_pointer/absorb_pointer_example.dart';
+import 'package:fluttertraining/calculator/calculator_example.dart';
+import 'package:fluttertraining/complex_ui/complex_ui_example.dart';
+import 'package:fluttertraining/custom_dialog/custom_dialog_example.dart';
+import 'package:fluttertraining/custom_scroll/custom_scroll_example.dart';
+import 'package:fluttertraining/hive/pages/info_screen.dart';
+import 'package:fluttertraining/paypal/paypal_example.dart';
+import 'package:fluttertraining/paypal_product/paypal_product_example.dart';
+import 'package:fluttertraining/radial_hero/radial_hero_example.dart';
+import 'package:fluttertraining/radio_button/radio_button_example.dart';
+import 'package:fluttertraining/screen_util/screen_util_example.dart';
+import 'package:fluttertraining/shake_animation/shake_animation_example.dart';
+import 'package:fluttertraining/slidable_list_items/slidable_list_items_example.dart';
+import 'package:fluttertraining/snackbar/snackbar_example.dart';
+import 'package:fluttertraining/tab_bar/tab_bar_example.dart';
+import 'package:fluttertraining/tab_controller/tab_controller_example.dart';
+import 'package:fluttertraining/training_task/training_task.dart';
+import 'package:fluttertraining/zodeak_x/zodeak_x_example.dart';
 
 import '../alertdialog/alertdialog_example.dart';
 import '../animated_container/animated_container_example.dart';
@@ -246,13 +249,44 @@ navigateTo(BuildContext context, int index) {
     case 34:
       navigatorHelper(
         context,
-        SwipeOnOffButton(onConfirmation: () {  },),
+        SwipeOnOffButton(
+          onConfirmation: () {},
+        ),
       );
       break;
     case 35:
       navigatorHelper(
         context,
         ScreenUtilPage(title: "Slidable Util"),
+      );
+      break;
+    case 36:
+      navigatorHelper(
+        context,
+        ShakeAnimationPage(title: "Shake Animation"),
+      );
+      break;
+    case 37:
+      navigatorHelper(
+        context,
+        PaypalPage(
+          title: "Paypal",
+          function: (id) {
+            print("order id - $id");
+            final snackBar = SnackBar(
+              content: Text("Payment Successful!"),
+              duration: Duration(seconds: 10),
+              action: SnackBarAction(
+                label: "Close",
+                onPressed: () {
+                  // Some code to undo the change.
+                  ScaffoldMessenger.of(context).removeCurrentSnackBar();
+                },
+              ),
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          },
+        ),
       );
       break;
   }

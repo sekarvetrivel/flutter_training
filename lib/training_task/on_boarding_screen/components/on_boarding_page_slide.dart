@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/training_task/widgets/custom_sized_box.dart';
-import 'package:flutter_training/training_task/widgets/custom_text.dart';
+import 'package:fluttertraining/training_task/widgets/custom_sized_box.dart';
+import 'package:fluttertraining/training_task/widgets/custom_text.dart';
 
 import '../../widgets/custom_container.dart';
 import '../view/on_boarding_screen.dart';

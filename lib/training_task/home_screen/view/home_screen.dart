@@ -3,9 +3,9 @@ import 'dart:convert';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_training/training_task/home_screen/view_model/home_view_model.dart';
-import 'package:flutter_training/training_task/widgets/custom_scaffold.dart';
-import 'package:flutter_training/training_task/widgets/custom_sized_box.dart';
+import 'package:fluttertraining/training_task/home_screen/view_model/home_view_model.dart';
+import 'package:fluttertraining/training_task/widgets/custom_scaffold.dart';
+import 'package:fluttertraining/training_task/widgets/custom_sized_box.dart';
 import 'package:http/http.dart' as http;
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';

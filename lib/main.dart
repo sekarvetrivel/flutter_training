@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_training/hive/model/people.dart';
-import 'package:flutter_training/training_task/training_task.dart';
+import 'package:fluttertraining/hive/model/people.dart';
+import 'package:fluttertraining/training_task/training_task.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -83,6 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
     "Slidable List",
     "Slider Button",
     "Screen Util",
+    "Shake Animation",
+    "Paypal",
   ];
 
   List<Color> colorList = [];

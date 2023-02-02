@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/training_task/login_screen/view_model/login_view_model.dart';
-import 'package:flutter_training/training_task/on_boarding_screen/view/on_boarding_screen.dart';
-import 'package:flutter_training/training_task/widgets/custom_button.dart';
-import 'package:flutter_training/training_task/widgets/custom_card.dart';
-import 'package:flutter_training/training_task/widgets/custom_container.dart';
-import 'package:flutter_training/training_task/widgets/custom_scaffold.dart';
-import 'package:flutter_training/training_task/widgets/custom_sized_box.dart';
-import 'package:flutter_training/training_task/widgets/custom_text.dart';
-import 'package:flutter_training/zodeak_x/widgets/custom_loader.dart';
+import 'package:fluttertraining/training_task/login_screen/view_model/login_view_model.dart';
+import 'package:fluttertraining/training_task/on_boarding_screen/view/on_boarding_screen.dart';
+import 'package:fluttertraining/training_task/widgets/custom_button.dart';
+import 'package:fluttertraining/training_task/widgets/custom_card.dart';
+import 'package:fluttertraining/training_task/widgets/custom_container.dart';
+import 'package:fluttertraining/training_task/widgets/custom_scaffold.dart';
+import 'package:fluttertraining/training_task/widgets/custom_sized_box.dart';
+import 'package:fluttertraining/training_task/widgets/custom_text.dart';
+import 'package:fluttertraining/zodeak_x/widgets/custom_loader.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 

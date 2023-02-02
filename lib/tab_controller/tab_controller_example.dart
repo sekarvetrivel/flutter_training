@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/tab_controller/pages/default_tab_controller.dart';
-import 'package:flutter_training/tab_controller/pages/tab_controller.dart';
+import 'package:fluttertraining/tab_controller/pages/default_tab_controller.dart';
+import 'package:fluttertraining/tab_controller/pages/tab_controller.dart';
 
 import '../global/global_functions.dart';
 

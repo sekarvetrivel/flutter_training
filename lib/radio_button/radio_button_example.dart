@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/radio_button/pages/custom_radio_button_example.dart';
-import 'package:flutter_training/radio_button/pages/radio_button_using_radio_list_tile.dart';
+import 'package:fluttertraining/radio_button/pages/custom_radio_button_example.dart';
+import 'package:fluttertraining/radio_button/pages/radio_button_using_radio_list_tile.dart';
 
 import 'pages/radio_button_using_radio.dart';
 import 'pages/styled_radio_button_example.dart';

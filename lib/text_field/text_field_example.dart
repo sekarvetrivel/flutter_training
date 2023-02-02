@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_training/text_field/components/my_custom_form.dart';
+import 'package:fluttertraining/text_field/components/my_custom_form.dart';
 
 class TextFieldPage extends StatefulWidget {
   const TextFieldPage({super.key, required this.title});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/global/global_functions.dart';
-import 'package:flutter_training/zodeak_x/pages/market_screen/market_view.dart';
+import 'package:fluttertraining/global/global_functions.dart';
+import 'package:fluttertraining/zodeak_x/pages/market_screen/market_view.dart';
 import 'package:provider/provider.dart';
 
 import 'pages/market_screen/market_view_model.dart';

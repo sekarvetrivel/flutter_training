@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_training/global/global_functions.dart';
+import 'package:fluttertraining/global/global_functions.dart';
 
 class AbsorbPointerPage extends StatefulWidget {
   const AbsorbPointerPage({super.key, required this.title});
