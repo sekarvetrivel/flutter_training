@@ -5,6 +5,7 @@ import 'package:fluttertraining/complex_ui/complex_ui_example.dart';
 import 'package:fluttertraining/custom_dialog/custom_dialog_example.dart';
 import 'package:fluttertraining/custom_scroll/custom_scroll_example.dart';
 import 'package:fluttertraining/hive/pages/info_screen.dart';
+import 'package:fluttertraining/notification/notification_example.dart';
 import 'package:fluttertraining/paypal/paypal_example.dart';
 import 'package:fluttertraining/paypal_product/paypal_product_example.dart';
 import 'package:fluttertraining/radial_hero/radial_hero_example.dart';
@@ -269,23 +270,16 @@ navigateTo(BuildContext context, int index) {
     case 37:
       navigatorHelper(
         context,
-        PaypalPage(
+        PaypalProductPage(
           title: "Paypal",
-          function: (id) {
-            print("order id - $id");
-            final snackBar = SnackBar(
-              content: Text("Payment Successful!"),
-              duration: Duration(seconds: 10),
-              action: SnackBarAction(
-                label: "Close",
-                onPressed: () {
-                  // Some code to undo the change.
-                  ScaffoldMessenger.of(context).removeCurrentSnackBar();
-                },
-              ),
-            );
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          },
+        ),
+      );
+      break;
+    case 38:
+      navigatorHelper(
+        context,
+        NotificationPage(
+          title: "Notification",
         ),
       );
       break;

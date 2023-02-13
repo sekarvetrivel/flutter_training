@@ -17,7 +17,7 @@ class AppConstants with ChangeNotifier{
 
   DeviceInfoPlugin deviceInfo = DeviceInfoPlugin(); // Get Device Details
   DeviceDetails? deviceDetails;
-  ValueNotifier<String> userToken = ValueNotifier('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjMwNzZmNTU0NzQzMTI0YjFiMTMzZmNlIiwiZGQiOnsiaXAiOiIxMzYuMjMyLjIyMi4xMzAiLCJsb2NhdGlvbiI6IiwgSW5kaWEiLCJkZXZpY2UiOiJkZXNrdG9wIiwic291cmNlIjoid2ViIiwib3MiOiJPUyBYIiwiYnJvd3NlciI6IkNocm9tZSIsInBsYXRmb3JtIjoiQXBwbGUgTWFjIn0sImlhdCI6MTY3NTMzMTIwOSwiZXhwIjoxNjc1MzMzMDA5fQ._9dWXe89qrAHfYi74gkEw-X3E_HLjSnX9cvWdkPe058'); // User Token
+  ValueNotifier<String> userToken = ValueNotifier('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjMwNzZmNTU0NzQzMTI0YjFiMTMzZmNlIiwiZGQiOnsiaXAiOiIxMzYuMjMyLjIyMi4xMzAiLCJsb2NhdGlvbiI6IiwgSW5kaWEiLCJkZXZpY2UiOiJkZXNrdG9wIiwic291cmNlIjoid2ViIiwib3MiOiJPUyBYIiwiYnJvd3NlciI6IkNocm9tZSIsInBsYXRmb3JtIjoiQXBwbGUgTWFjIn0sImlhdCI6MTY3NTQxMzY4MiwiZXhwIjoxNjc1NDE1NDgyfQ.hoUIZZcCyizVPjF4XwAR5byYM7DPHyo-jAgb2sWhV1o'); // User Token
   ValueNotifier<bool> userLoginStatus = ValueNotifier(false);
   ValueNotifier<String> userEmail = ValueNotifier('ZodeakX@gmail.com');
   ValueNotifier<String> userCurrency = ValueNotifier("RUB");

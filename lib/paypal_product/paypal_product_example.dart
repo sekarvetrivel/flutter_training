@@ -23,7 +23,6 @@ class PaypalProductPage extends StatefulWidget {
 class _PaypalProductPageState extends State<PaypalProductPage>
     with TickerProviderStateMixin {
   late PaypalProductViewModel viewModel;
-  var checkoutUrl;
 
   @override
   void initState() {
@@ -39,17 +38,10 @@ class _PaypalProductPageState extends State<PaypalProductPage>
   Widget build(BuildContext context) {
     viewModel = context.watch<PaypalProductViewModel>();
     if (viewModel.braintreeClientToken != null) {
-      final request = BraintreeDropInRequest(
-        clientToken: viewModel.braintreeClientToken!.clientToken,
-        collectDeviceData: true,
-        paypalRequest: BraintreePayPalRequest(
-          amount: '10.20',
-          displayName: 'Example company',
-        ),
+      final request = BraintreePayPalRequest(
+        billingAgreementDescription:
+            'I hereby agree that flutter_braintree is great.',
       );
-
-      checkoutUrl =
-          "https://www.sandbox.paypal.com/checkoutnow?sessionID=uid_d1c205a3ba_mtq6mtc6ntk&buttonSessionID=uid_33460ff87c_mtq6mtg6mdk&stickinessID=uid_45ad2e8e45_mtm6mdq6mda&inlinexo=false&smokeHash=&fundingSource=paypal&buyerCountry=IN&locale.x=en_GB&commit=true&standaloneFundingSource=paypal&branded=true&clientID=${viewModel.braintreeClientToken!.clientToken}&env=sandbox&sdkMeta=eyJ1cmwiOiJodHRwczovL3d3dy5wYXlwYWwuY29tL3Nkay9qcz9jb21wb25lbnRzPWJ1dHRvbnMmY3VycmVuY3k9RVVSJmludGVudD1jYXB0dXJlJmNsaWVudC1pZD1BWjc0RjZBV0lyVExEQkpxM19MUkx0YWpwVDk5ZW93eVJXdkhEZWtUZXIzMGhnWGszUDBWQ1hJcVBiU2s0aFFsYzBMTXVla25MY1hLd2szOCIsImF0dHJzIjp7ImRhdGEtdWlkIjoidWlkX2VtaHZ4eHFneXF4aGh2YWlza3p6eGxkeGdrZHh4ciJ9fQ&xcomponent=1&version=5.0.350&token=EC-76A61188A5109493E";
       return Provider(
         create: (BuildContext context) => viewModel,
         child: Scaffold(
@@ -63,16 +55,15 @@ class _PaypalProductPageState extends State<PaypalProductPage>
             body: ElevatedButton(
               child: Text("pay"),
               onPressed: () async {
-                BraintreePayPalRequest? result = BraintreePayPalRequest(
-                  amount: "10",
-                  billingAgreementDescription: "none",
-                  currencyCode: "USD",
-                  displayName: 'Example company',
+                BraintreePaymentMethodNonce? result =
+                    await Braintree.requestPaypalNonce(
+                  viewModel.braintreeClientToken!.clientToken.toString(),
+                  request,
                 );
                 if (result != null) {
-                  print('Nonce: ${result.amount}');
+                  print('Nonce: ${result.nonce}');
                 } else {
-                  print('Selection was canceled.');
+                  print('PayPal flow was canceled.');
                 }
               },
             )),
