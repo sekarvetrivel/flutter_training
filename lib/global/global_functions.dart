@@ -35,6 +35,7 @@ import '../drawer/drawer_example.dart';
 import '../icons/icons_example.dart';
 import '../list_view_and_list_tile/list_view_example.dart';
 import '../load_more/load_more_example.dart';
+import '../main.dart';
 import '../scaffold/scaffold_example.dart';
 import '../slider/slider_example.dart';
 import '../text/text_example.dart';
@@ -279,6 +280,7 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         NotificationPage(
+          notificationAppLaunchDetails,
           title: "Notification",
         ),
       );
