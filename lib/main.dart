@@ -296,6 +296,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "Shake Animation",
     "Paypal",
     "Notification",
+    "MultiSelectListView",
   ];
 
   List<Color> colorList = [];

@@ -5,6 +5,7 @@ import 'package:fluttertraining/complex_ui/complex_ui_example.dart';
 import 'package:fluttertraining/custom_dialog/custom_dialog_example.dart';
 import 'package:fluttertraining/custom_scroll/custom_scroll_example.dart';
 import 'package:fluttertraining/hive/pages/info_screen.dart';
+import 'package:fluttertraining/multi_select_listview/multi_select_listview_example.dart';
 import 'package:fluttertraining/notification/notification_example.dart';
 import 'package:fluttertraining/paypal/paypal_example.dart';
 import 'package:fluttertraining/paypal_product/paypal_product_example.dart';
@@ -282,6 +283,14 @@ navigateTo(BuildContext context, int index) {
         NotificationPage(
           notificationAppLaunchDetails,
           title: "Notification",
+        ),
+      );
+      break;
+    case 39:
+      navigatorHelper(
+        context,
+        MultiSelectListViewPage(
+          title: "MultiSelectListView",
         ),
       );
       break;

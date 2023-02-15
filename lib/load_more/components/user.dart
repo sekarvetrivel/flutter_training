@@ -7,5 +7,7 @@ class User {
 
   final String mobileNumber;
 
+  bool isSelected = false;
+
   User(this.fullName, this.email, this.imageUrl, this.mobileNumber);
 }
