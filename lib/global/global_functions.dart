@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertraining/absorb_pointer/absorb_pointer_example.dart';
+import 'package:fluttertraining/animations/animations_Example.dart';
 import 'package:fluttertraining/calculator/calculator_example.dart';
 import 'package:fluttertraining/complex_ui/complex_ui_example.dart';
 import 'package:fluttertraining/custom_dialog/custom_dialog_example.dart';
@@ -37,6 +38,7 @@ import '../icons/icons_example.dart';
 import '../list_view_and_list_tile/list_view_example.dart';
 import '../load_more/load_more_example.dart';
 import '../main.dart';
+import '../reorderable_view/reorderable_view_example.dart';
 import '../scaffold/scaffold_example.dart';
 import '../slider/slider_example.dart';
 import '../text/text_example.dart';
@@ -292,6 +294,18 @@ navigateTo(BuildContext context, int index) {
         MultiSelectListViewPage(
           title: "MultiSelectListView",
         ),
+      );
+      break;
+    case 40:
+      navigatorHelper(
+        context,
+        Animations(),
+      );
+      break;
+    case 41:
+      navigatorHelper(
+        context,
+        ReorderableViewPage(),
       );
       break;
   }
