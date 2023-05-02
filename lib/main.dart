@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:fluttertraining/hive/model/people.dart';
 import 'package:fluttertraining/training_task/training_task.dart';
+import 'package:fluttertraining/uni_link/src/ExampleCustom.dart';
 import 'package:fluttertraining/uni_link/uni_link_example.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
@@ -224,7 +225,7 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(PeopleAdapter());
   await Hive.openBox('peopleBox');
-  runApp(UniLinkPage());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -301,6 +302,9 @@ class _MyHomePageState extends State<MyHomePage> {
     "Animations",
     "ReorderableView",
     "deby",
+    "Bottom Sheet",
+    "Animated Positioned",
+    "Homescreen Shortcut",
   ];
 
   List<Color> colorList = [];

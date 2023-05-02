@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertraining/absorb_pointer/absorb_pointer_example.dart';
+import 'package:fluttertraining/animated_positioned/bottom_sheet_example.dart';
 import 'package:fluttertraining/animations/animations_Example.dart';
 import 'package:fluttertraining/calculator/calculator_example.dart';
 import 'package:fluttertraining/complex_ui/complex_ui_example.dart';
 import 'package:fluttertraining/custom_dialog/custom_dialog_example.dart';
 import 'package:fluttertraining/custom_scroll/custom_scroll_example.dart';
 import 'package:fluttertraining/hive/pages/info_screen.dart';
+import 'package:fluttertraining/home_screen_shortcut/home_screen_shortcut_example.dart';
 import 'package:fluttertraining/image_carousel/image_carousel_example.dart';
 import 'package:fluttertraining/multi_select_listview/multi_select_listview_example.dart';
 import 'package:fluttertraining/notification/notification_example.dart';
@@ -28,6 +30,7 @@ import '../animation_controller/animation_controller_example.dart';
 import '../aspect_ratio/aspect_ratio_example.dart';
 import '../asset_bundle/asset_bundle_example.dart';
 import '../baseline/baseline_example.dart';
+import '../bottom_sheet/bottom_sheet_example.dart';
 import '../buttons/buttons_example.dart';
 import '../card/card_example.dart';
 import '../column/column_example.dart';
@@ -312,7 +315,25 @@ navigateTo(BuildContext context, int index) {
     case 42:
       navigatorHelper(
         context,
-        ImageCarouselPage(),
+        TestPage(),
+      );
+      break;
+    case 43:
+      navigatorHelper(
+        context,
+        BottomSheetExample(),
+      );
+      break;
+    case 44:
+      navigatorHelper(
+        context,
+        AnimatedPositionedExample(),
+      );
+      break;
+    case 45:
+      navigatorHelper(
+        context,
+        HomeScreenShortcutPage(),
       );
       break;
   }
