@@ -305,6 +305,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "Bottom Sheet",
     "Animated Positioned",
     "Homescreen Shortcut",
+    "Pinned Shortcut",
   ];
 
   List<Color> colorList = [];

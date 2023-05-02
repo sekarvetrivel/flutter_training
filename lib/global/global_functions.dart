@@ -13,6 +13,7 @@ import 'package:fluttertraining/multi_select_listview/multi_select_listview_exam
 import 'package:fluttertraining/notification/notification_example.dart';
 import 'package:fluttertraining/paypal/paypal_example.dart';
 import 'package:fluttertraining/paypal_product/paypal_product_example.dart';
+import 'package:fluttertraining/pinned_shortcut/pinned_shortcut_example.dart';
 import 'package:fluttertraining/radial_hero/radial_hero_example.dart';
 import 'package:fluttertraining/radio_button/radio_button_example.dart';
 import 'package:fluttertraining/screen_util/screen_util_example.dart';
@@ -334,6 +335,12 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         HomeScreenShortcutPage(),
+      );
+      break;
+    case 46:
+      navigatorHelper(
+        context,
+        PinnedShortcutPage(),
       );
       break;
   }
