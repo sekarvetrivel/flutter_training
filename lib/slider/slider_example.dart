@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SwipeOnOffButton extends StatefulWidget {
@@ -135,7 +134,9 @@ class SwipeOnOffButtonState extends State<SwipeOnOffButton> {
             child: Text(
               widget.text ?? "Start",
               style: widget.textStyle ??
-                  Theme.of(context).textTheme.bodyMedium!
+                  Theme.of(context)
+                      .textTheme
+                      .bodyMedium!
                       .copyWith(color: Colors.white),
             ),
           ),
@@ -144,44 +145,27 @@ class SwipeOnOffButtonState extends State<SwipeOnOffButton> {
             curve: Curves.bounceOut,
             left: getPosition(),
             child: GestureDetector(
-              onPanUpdate: (details) => updatePosition(details),
-              onPanEnd: (details) => swipeReleased(details),
-              child: !_isSwipe
-                  ? Container(
-                height: widget.height,
-                width: widget.height,
-                decoration: BoxDecoration(
-                  borderRadius: widget.foregroundRadius ??
-                      BorderRadius.all(
-                        Radius.circular(widget.height / 2),
-                      ),
-                  color: widget.foregroundColor ??
-                      Colors.white.withOpacity(0.24),
-                ),
-                child: Icon(
-                  widget.leftIcon ?? Icons.arrow_circle_up_rounded,
-                  color: widget.iconColor ?? Colors.white,
-                  size: widget.iconSize ?? 20.0,
-                ),
-              )
-                  : Container(
-                height: widget.height,
-                width: widget.height,
-                decoration: BoxDecoration(
-                  borderRadius: widget.foregroundRadius ??
-                      BorderRadius.all(
-                        Radius.circular(widget.height / 2),
-                      ),
-                  color: widget.foregroundColor ??
-                      Colors.white.withOpacity(0.24),
-                ),
-                child: Icon(
-                  widget.rightIcon ?? Icons.check_circle_rounded,
-                  color: widget.iconColor ?? Colors.white,
-                  size: widget.iconSize ?? 20.0,
-                ),
-              ),
-            ),
+                onPanUpdate: (details) => updatePosition(details),
+                onPanEnd: (details) => swipeReleased(details),
+                child: Container(
+                  height: widget.height,
+                  width: widget.height,
+                  decoration: BoxDecoration(
+                    borderRadius: widget.foregroundRadius ??
+                        BorderRadius.all(
+                          Radius.circular(widget.height / 2),
+                        ),
+                    color: widget.foregroundColor ??
+                        Colors.white.withOpacity(0.24),
+                  ),
+                  child: Icon(
+                    !_isSwipe
+                        ? widget.leftIcon ?? Icons.arrow_circle_up_rounded
+                        : widget.rightIcon ?? Icons.check_circle_rounded,
+                    color: widget.iconColor ?? Colors.white,
+                    size: widget.iconSize ?? 20.0,
+                  ),
+                )),
           ),
         ],
       ),

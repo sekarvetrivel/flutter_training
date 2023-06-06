@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pinned_shortcut/flutter_pinned_shortcut.dart';
 import 'package:flutter_shortcuts/flutter_shortcuts.dart';
 
+import '../custom_cupertino_date_picker/CustomCupertinoDatePicker.dart';
+import '../slider/slider_example.dart';
+
 class PinnedShortcutPage extends StatefulWidget {
   @override
   _PinnedShortcutPageState createState() => _PinnedShortcutPageState();
@@ -11,11 +14,27 @@ class _PinnedShortcutPageState extends State<PinnedShortcutPage> {
   String action = 'No Action';
   final FlutterShortcuts flutterShortcuts = FlutterShortcuts();
   int? maxLimit;
-  final FlutterPinnedShortcut flutterPinnedShortcutPlugin = FlutterPinnedShortcut();
+  final FlutterPinnedShortcut flutterPinnedShortcutPlugin =
+      FlutterPinnedShortcut();
+  late final DateTime _minDate;
+  late final DateTime _maxDate;
+  late DateTime _selecteDate;
 
   @override
   void initState() {
     super.initState();
+    final currentDate = DateTime.now();
+    _minDate = DateTime(
+      currentDate.year - 100,
+      currentDate.month,
+      currentDate.day,
+    );
+    _maxDate = DateTime(
+      currentDate.year - 18,
+      currentDate.month,
+      currentDate.day,
+    );
+    _selecteDate = _maxDate;
     flutterShortcuts.initialize(debug: true);
     flutterShortcuts.listenAction((String incomingAction) {
       setState(() {
@@ -30,8 +49,7 @@ class _PinnedShortcutPageState extends State<PinnedShortcutPage> {
         id: "1",
         label: "Followers",
         action: "followers",
-        iconAssetName: "assets/images/Google.png"
-    );
+        iconAssetName: "assets/images/Google.png");
   }
 
   @override
@@ -58,6 +76,41 @@ class _PinnedShortcutPageState extends State<PinnedShortcutPage> {
                       },
                     ),
                   ],
+                ),
+                SwipeOnOffButton(
+                  onConfirmation: () {},
+                ),
+                SizedBox(
+                  height: 300,
+                  child: CustomCupertinoDatePicker(
+                    itemExtent: 50,
+                    minDate: _minDate,
+                    maxDate: _maxDate,
+                    selectedDate: _selecteDate,
+                    selectionOverlay: Container(
+                      width: double.infinity,
+                      height: 50,
+                      decoration: const BoxDecoration(
+                        border: Border.symmetric(
+                          horizontal: BorderSide(color: Colors.grey, width: 1),
+                        ),
+                      ),
+                    ),
+                    selectedStyle: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 24,
+                    ),
+                    unselectedStyle: TextStyle(
+                      color: Colors.grey[800],
+                      fontSize: 18,
+                    ),
+                    disabledStyle: TextStyle(
+                      color: Colors.grey[400],
+                      fontSize: 18,
+                    ),
+                    onSelectedItemChanged: (date) => _selecteDate = date,
+                  ),
                 ),
               ],
             ),
