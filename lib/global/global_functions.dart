@@ -9,6 +9,7 @@ import 'package:fluttertraining/custom_scroll/custom_scroll_example.dart';
 import 'package:fluttertraining/hive/pages/info_screen.dart';
 import 'package:fluttertraining/home_screen_shortcut/home_screen_shortcut_example.dart';
 import 'package:fluttertraining/image_carousel/image_carousel_example.dart';
+import 'package:fluttertraining/localization/localization_example.dart';
 import 'package:fluttertraining/multi_select_listview/multi_select_listview_example.dart';
 import 'package:fluttertraining/notification/notification_example.dart';
 import 'package:fluttertraining/paypal/paypal_example.dart';
@@ -341,6 +342,12 @@ navigateTo(BuildContext context, int index) {
       navigatorHelper(
         context,
         PinnedShortcutPage(),
+      );
+      break;
+    case 47:
+      navigatorHelper(
+        context,
+        LocalizationPage(),
       );
       break;
   }

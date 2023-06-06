@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertraining/localization/view_model/locale_view_model.dart';
 import 'package:fluttertraining/paypal_product/view_model/paypal_product_view_model.dart';
 import 'package:fluttertraining/training_task/home_screen/view_model/home_view_model.dart';
 import 'package:fluttertraining/training_task/on_boarding_screen/view_model/on_boarding_view_model.dart';
@@ -51,6 +52,9 @@ getAllProviers() {
     ),
     ChangeNotifierProvider(
       create: (_) => PaypalProductViewModel(),
+    ),
+    ChangeNotifierProvider(
+      create: (_) => LocaleViewModel(),
     ),
   ];
 }

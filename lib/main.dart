@@ -5,18 +5,21 @@ import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:fluttertraining/hive/model/people.dart';
-import 'package:fluttertraining/training_task/training_task.dart';
-import 'package:fluttertraining/uni_link/src/ExampleCustom.dart';
-import 'package:fluttertraining/uni_link/uni_link_example.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
+import 'package:fluttertraining/hive/model/people.dart';
+import 'package:fluttertraining/localization/view_model/locale_view_model.dart';
+import 'package:fluttertraining/training_task/training_task.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
+
 import 'home/components/home_item_card.dart';
 import 'home/components/my_list_tile.dart';
+import 'localization/l10n/l10n.dart';
 import 'notification/notification_example.dart';
 import 'notification/pages/second_page.dart';
 
@@ -26,6 +29,7 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 NotificationAppLaunchDetails? notificationAppLaunchDetails;
+
 /// Streams are created so that app can respond to notification-related events
 /// since the plugin is initialised in the `main` function
 final StreamController<ReceivedNotification> didReceiveLocalNotificationStream =
@@ -115,8 +119,7 @@ void main() async {
 
   await _configureLocalTimeZone();
 
-  notificationAppLaunchDetails = !kIsWeb &&
-          Platform.isLinux
+  notificationAppLaunchDetails = !kIsWeb && Platform.isLinux
       ? null
       : await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
   String initialRoute = NotificationPage.routeName;
@@ -235,15 +238,26 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: getAllProviers(),
-      child: MaterialApp(
-        navigatorKey: NavigationService.navigatorKey,
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Training',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const MyHomePage(title: 'Flutter Training'),
-      ),
+      child: Consumer<LocaleViewModel>(builder: (context, provider, snapshot) {
+        return MaterialApp(
+          navigatorKey: NavigationService.navigatorKey,
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Training',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          locale: provider.locale,
+          localizationsDelegates: [
+            //AppLocalizationsDelegate(),
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            AppLocalizations.delegate,
+          ],
+          supportedLocales: L10n.all,
+          home: const MyHomePage(title: 'Flutter Training'),
+        );
+      }),
     );
   }
 }
@@ -306,6 +320,7 @@ class _MyHomePageState extends State<MyHomePage> {
     "Animated Positioned",
     "Homescreen Shortcut",
     "Pinned Shortcut",
+    "Localization",
   ];
 
   List<Color> colorList = [];
